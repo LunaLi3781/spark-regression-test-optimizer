@@ -1,0 +1,42 @@
+name: CI
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  baseline:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.9', '3.11', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install .
+      - run: python -m unittest discover -s tests -v
+      - run: spark-rto examples/history.json --budget 10 --outcomes examples/outcomes.json
+      - run: python -m scripts.evaluate_demo > demo-results.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: demo-${{ matrix.python }}
+          path: demo-results.json
+  spark-smoke:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - run: python -m pip install pyspark==3.5.3
+      - run: python -m scripts.collect_spark --output results/spark.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: spark-smoke
+          path: results/

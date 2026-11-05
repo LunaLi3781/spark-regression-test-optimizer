@@ -1,0 +1,796 @@
+{
+  "data_kind": "synthetic",
+  "rows": [
+    {
+      "budget_s": 5,
+      "strategy": "random",
+      "seed": 0,
+      "estimated_duration_s": 5,
+      "selected": [
+        "sql_cast",
+        "sql_null"
+      ],
+      "failing_test_recall": 0.6666666666666666
+    },
+    {
+      "budget_s": 5,
+      "strategy": "random",
+      "seed": 1,
+      "estimated_duration_s": 5,
+      "selected": [
+        "sql_filter",
+        "sql_sort",
+        "sql_cast"
+      ],
+      "failing_test_recall": 0.3333333333333333
+    },
+    {
+      "budget_s": 5,
+      "strategy": "random",
+      "seed": 2,
+      "estimated_duration_s": 5,
+      "selected": [
+        "sql_null",
+        "sql_filter",
+        "sql_distinct"
+      ],
+      "failing_test_recall": 0.3333333333333333
+    },
+    {
+      "budget_s": 5,
+      "strategy": "random",
+      "seed": 3,
+      "estimated_duration_s": 5,
+      "selected": [
+        "sql_aggregate",
+        "sql_sort"
+      ],
+      "failing_test_recall": 0.0
+    },
+    {
+      "budget_s": 5,
+      "strategy": "random",
+      "seed": 4,
+      "estimated_duration_s": 5,
+      "selected": [
+        "sql_cast",
+        "sql_sort",
+        "sql_filter"
+      ],
+      "failing_test_recall": 0.3333333333333333
+    },
+    {
+      "budget_s": 5,
+      "strategy": "random",
+      "seed": 5,
+      "estimated_duration_s": 5,
+      "selected": [
+        "sql_sort",
+        "sql_filter",
+        "sql_cast"
+      ],
+      "failing_test_recall": 0.3333333333333333
+    },
+    {
+      "budget_s": 5,
+      "strategy": "random",
+      "seed": 6,
+      "estimated_duration_s": 5,
+      "selected": [
+        "sql_null",
+        "sql_sort",
+        "sql_distinct"
+      ],
+      "failing_test_recall": 0.3333333333333333
+    },
+    {
+      "budget_s": 5,
+      "strategy": "random",
+      "seed": 7,
+      "estimated_duration_s": 4,
+      "selected": [
+        "sql_sort",
+        "sql_distinct",
+        "sql_filter"
+      ],
+      "failing_test_recall": 0.0
+    },
+    {
+      "budget_s": 5,
+      "strategy": "random",
+      "seed": 8,
+      "estimated_duration_s": 5,
+      "selected": [
+        "sql_null",
+        "sql_sort",
+        "sql_distinct"
+      ],
+      "failing_test_recall": 0.3333333333333333
+    },
+    {
+      "budget_s": 5,
+      "strategy": "random",
+      "seed": 9,
+      "estimated_duration_s": 5,
+      "selected": [
+        "sql_filter",
+        "sql_sort",
+        "sql_cast"
+      ],
+      "failing_test_recall": 0.3333333333333333
+    },
+    {
+      "budget_s": 5,
+      "strategy": "failure",
+      "seed": 0,
+      "estimated_duration_s": 5,
+      "selected": [
+        "sql_aggregate",
+        "sql_filter"
+      ],
+      "failing_test_recall": 0.0
+    },
+    {
+      "budget_s": 5,
+      "strategy": "cheapest",
+      "seed": 0,
+      "estimated_duration_s": 4,
+      "selected": [
+        "sql_filter",
+        "sql_sort",
+        "sql_distinct"
+      ],
+      "failing_test_recall": 0.0
+    },
+    {
+      "budget_s": 5,
+      "strategy": "change",
+      "seed": 0,
+      "estimated_duration_s": 5,
+      "selected": [
+        "sql_aggregate",
+        "sql_filter"
+      ],
+      "failing_test_recall": 0.0
+    },
+    {
+      "budget_s": 5,
+      "strategy": "budget",
+      "seed": 0,
+      "estimated_duration_s": 5,
+      "selected": [
+        "sql_filter",
+        "sql_aggregate"
+      ],
+      "failing_test_recall": 0.0
+    },
+    {
+      "budget_s": 10,
+      "strategy": "random",
+      "seed": 0,
+      "estimated_duration_s": 10,
+      "selected": [
+        "sql_join",
+        "sql_null"
+      ],
+      "failing_test_recall": 0.6666666666666666
+    },
+    {
+      "budget_s": 10,
+      "strategy": "random",
+      "seed": 1,
+      "estimated_duration_s": 9,
+      "selected": [
+        "sql_filter",
+        "sql_sort",
+        "sql_cast",
+        "sql_null",
+        "sql_distinct"
+      ],
+      "failing_test_recall": 0.6666666666666666
+    },
+    {
+      "budget_s": 10,
+      "strategy": "random",
+      "seed": 2,
+      "estimated_duration_s": 9,
+      "selected": [
+        "sql_null",
+        "sql_filter",
+        "sql_cast",
+        "sql_distinct",
+        "sql_sort"
+      ],
+      "failing_test_recall": 0.6666666666666666
+    },
+    {
+      "budget_s": 10,
+      "strategy": "random",
+      "seed": 3,
+      "estimated_duration_s": 10,
+      "selected": [
+        "sql_aggregate",
+        "sql_null",
+        "sql_distinct",
+        "sql_sort",
+        "sql_filter"
+      ],
+      "failing_test_recall": 0.3333333333333333
+    },
+    {
+      "budget_s": 10,
+      "strategy": "random",
+      "seed": 4,
+      "estimated_duration_s": 10,
+      "selected": [
+        "sql_cast",
+        "sql_sort",
+        "sql_null",
+        "sql_aggregate"
+      ],
+      "failing_test_recall": 0.6666666666666666
+    },
+    {
+      "budget_s": 10,
+      "strategy": "random",
+      "seed": 5,
+      "estimated_duration_s": 9,
+      "selected": [
+        "sql_sort",
+        "sql_filter",
+        "sql_cast",
+        "sql_aggregate"
+      ],
+      "failing_test_recall": 0.3333333333333333
+    },
+    {
+      "budget_s": 10,
+      "strategy": "random",
+      "seed": 6,
+      "estimated_duration_s": 10,
+      "selected": [
+        "sql_null",
+        "sql_window",
+        "sql_sort"
+      ],
+      "failing_test_recall": 0.3333333333333333
+    },
+    {
+      "budget_s": 10,
+      "strategy": "random",
+      "seed": 7,
+      "estimated_duration_s": 10,
+      "selected": [
+        "sql_sort",
+        "sql_window",
+        "sql_distinct"
+      ],
+      "failing_test_recall": 0.0
+    },
+    {
+      "budget_s": 10,
+      "strategy": "random",
+      "seed": 8,
+      "estimated_duration_s": 10,
+      "selected": [
+        "sql_null",
+        "sql_aggregate",
+        "sql_sort",
+        "sql_cast"
+      ],
+      "failing_test_recall": 0.6666666666666666
+    },
+    {
+      "budget_s": 10,
+      "strategy": "random",
+      "seed": 9,
+      "estimated_duration_s": 9,
+      "selected": [
+        "sql_filter",
+        "sql_sort",
+        "sql_aggregate",
+        "sql_cast"
+      ],
+      "failing_test_recall": 0.3333333333333333
+    },
+    {
+      "budget_s": 10,
+      "strategy": "failure",
+      "seed": 0,
+      "estimated_duration_s": 10,
+      "selected": [
+        "sql_join",
+        "sql_null"
+      ],
+      "failing_test_recall": 0.6666666666666666
+    },
+    {
+      "budget_s": 10,
+      "strategy": "cheapest",
+      "seed": 0,
+      "estimated_duration_s": 9,
+      "selected": [
+        "sql_filter",
+        "sql_sort",
+        "sql_distinct",
+        "sql_null",
+        "sql_cast"
+      ],
+      "failing_test_recall": 0.6666666666666666
+    },
+    {
+      "budget_s": 10,
+      "strategy": "change",
+      "seed": 0,
+      "estimated_duration_s": 10,
+      "selected": [
+        "sql_join",
+        "sql_null"
+      ],
+      "failing_test_recall": 0.6666666666666666
+    },
+    {
+      "budget_s": 10,
+      "strategy": "budget",
+      "seed": 0,
+      "estimated_duration_s": 10,
+      "selected": [
+        "sql_filter",
+        "sql_aggregate",
+        "sql_null",
+        "sql_sort",
+        "sql_distinct"
+      ],
+      "failing_test_recall": 0.3333333333333333
+    },
+    {
+      "budget_s": 20,
+      "strategy": "random",
+      "seed": 0,
+      "estimated_duration_s": 20,
+      "selected": [
+        "sql_join",
+        "sql_cast",
+        "sql_null",
+        "sql_distinct",
+        "sql_aggregate",
+        "sql_filter"
+      ],
+      "failing_test_recall": 1.0
+    },
+    {
+      "budget_s": 20,
+      "strategy": "random",
+      "seed": 1,
+      "estimated_duration_s": 20,
+      "selected": [
+        "sql_filter",
+        "sql_sort",
+        "sql_cast",
+        "sql_null",
+        "sql_window",
+        "sql_aggregate",
+        "sql_distinct"
+      ],
+      "failing_test_recall": 0.6666666666666666
+    },
+    {
+      "budget_s": 20,
+      "strategy": "random",
+      "seed": 2,
+      "estimated_duration_s": 17,
+      "selected": [
+        "sql_null",
+        "sql_filter",
+        "sql_join",
+        "sql_cast",
+        "sql_distinct",
+        "sql_sort"
+      ],
+      "failing_test_recall": 1.0
+    },
+    {
+      "budget_s": 20,
+      "strategy": "random",
+      "seed": 3,
+      "estimated_duration_s": 20,
+      "selected": [
+        "sql_aggregate",
+        "sql_null",
+        "sql_window",
+        "sql_distinct",
+        "sql_cast",
+        "sql_sort",
+        "sql_filter"
+      ],
+      "failing_test_recall": 0.6666666666666666
+    },
+    {
+      "budget_s": 20,
+      "strategy": "random",
+      "seed": 4,
+      "estimated_duration_s": 20,
+      "selected": [
+        "sql_cast",
+        "sql_sort",
+        "sql_null",
+        "sql_join",
+        "sql_aggregate",
+        "sql_distinct"
+      ],
+      "failing_test_recall": 1.0
+    },
+    {
+      "budget_s": 20,
+      "strategy": "random",
+      "seed": 5,
+      "estimated_duration_s": 20,
+      "selected": [
+        "sql_sort",
+        "sql_filter",
+        "sql_cast",
+        "sql_aggregate",
+        "sql_window",
+        "sql_distinct",
+        "sql_null"
+      ],
+      "failing_test_recall": 0.6666666666666666
+    },
+    {
+      "budget_s": 20,
+      "strategy": "random",
+      "seed": 6,
+      "estimated_duration_s": 20,
+      "selected": [
+        "sql_null",
+        "sql_window",
+        "sql_sort",
+        "sql_join",
+        "sql_distinct"
+      ],
+      "failing_test_recall": 0.6666666666666666
+    },
+    {
+      "budget_s": 20,
+      "strategy": "random",
+      "seed": 7,
+      "estimated_duration_s": 19,
+      "selected": [
+        "sql_sort",
+        "sql_window",
+        "sql_distinct",
+        "sql_join",
+        "sql_filter"
+      ],
+      "failing_test_recall": 0.3333333333333333
+    },
+    {
+      "budget_s": 20,
+      "strategy": "random",
+      "seed": 8,
+      "estimated_duration_s": 20,
+      "selected": [
+        "sql_null",
+        "sql_aggregate",
+        "sql_sort",
+        "sql_join",
+        "sql_cast",
+        "sql_distinct"
+      ],
+      "failing_test_recall": 1.0
+    },
+    {
+      "budget_s": 20,
+      "strategy": "random",
+      "seed": 9,
+      "estimated_duration_s": 20,
+      "selected": [
+        "sql_filter",
+        "sql_sort",
+        "sql_aggregate",
+        "sql_cast",
+        "sql_null",
+        "sql_distinct",
+        "sql_window"
+      ],
+      "failing_test_recall": 0.6666666666666666
+    },
+    {
+      "budget_s": 20,
+      "strategy": "failure",
+      "seed": 0,
+      "estimated_duration_s": 20,
+      "selected": [
+        "sql_join",
+        "sql_aggregate",
+        "sql_window",
+        "sql_filter"
+      ],
+      "failing_test_recall": 0.3333333333333333
+    },
+    {
+      "budget_s": 20,
+      "strategy": "cheapest",
+      "seed": 0,
+      "estimated_duration_s": 20,
+      "selected": [
+        "sql_filter",
+        "sql_sort",
+        "sql_distinct",
+        "sql_null",
+        "sql_cast",
+        "sql_aggregate",
+        "sql_window"
+      ],
+      "failing_test_recall": 0.6666666666666666
+    },
+    {
+      "budget_s": 20,
+      "strategy": "change",
+      "seed": 0,
+      "estimated_duration_s": 20,
+      "selected": [
+        "sql_join",
+        "sql_aggregate",
+        "sql_null",
+        "sql_cast",
+        "sql_filter",
+        "sql_distinct"
+      ],
+      "failing_test_recall": 1.0
+    },
+    {
+      "budget_s": 20,
+      "strategy": "budget",
+      "seed": 0,
+      "estimated_duration_s": 19,
+      "selected": [
+        "sql_filter",
+        "sql_aggregate",
+        "sql_null",
+        "sql_join",
+        "sql_sort",
+        "sql_cast"
+      ],
+      "failing_test_recall": 1.0
+    },
+    {
+      "budget_s": 28,
+      "strategy": "random",
+      "seed": 0,
+      "estimated_duration_s": 28,
+      "selected": [
+        "sql_join",
+        "sql_cast",
+        "sql_null",
+        "sql_distinct",
+        "sql_aggregate",
+        "sql_filter",
+        "sql_window",
+        "sql_sort"
+      ],
+      "failing_test_recall": 1.0
+    },
+    {
+      "budget_s": 28,
+      "strategy": "random",
+      "seed": 1,
+      "estimated_duration_s": 28,
+      "selected": [
+        "sql_filter",
+        "sql_sort",
+        "sql_cast",
+        "sql_null",
+        "sql_window",
+        "sql_aggregate",
+        "sql_join",
+        "sql_distinct"
+      ],
+      "failing_test_recall": 1.0
+    },
+    {
+      "budget_s": 28,
+      "strategy": "random",
+      "seed": 2,
+      "estimated_duration_s": 28,
+      "selected": [
+        "sql_null",
+        "sql_filter",
+        "sql_join",
+        "sql_cast",
+        "sql_distinct",
+        "sql_sort",
+        "sql_window",
+        "sql_aggregate"
+      ],
+      "failing_test_recall": 1.0
+    },
+    {
+      "budget_s": 28,
+      "strategy": "random",
+      "seed": 3,
+      "estimated_duration_s": 28,
+      "selected": [
+        "sql_aggregate",
+        "sql_null",
+        "sql_window",
+        "sql_distinct",
+        "sql_cast",
+        "sql_sort",
+        "sql_join",
+        "sql_filter"
+      ],
+      "failing_test_recall": 1.0
+    },
+    {
+      "budget_s": 28,
+      "strategy": "random",
+      "seed": 4,
+      "estimated_duration_s": 28,
+      "selected": [
+        "sql_cast",
+        "sql_sort",
+        "sql_null",
+        "sql_join",
+        "sql_window",
+        "sql_aggregate",
+        "sql_distinct",
+        "sql_filter"
+      ],
+      "failing_test_recall": 1.0
+    },
+    {
+      "budget_s": 28,
+      "strategy": "random",
+      "seed": 5,
+      "estimated_duration_s": 28,
+      "selected": [
+        "sql_sort",
+        "sql_filter",
+        "sql_cast",
+        "sql_aggregate",
+        "sql_window",
+        "sql_distinct",
+        "sql_null",
+        "sql_join"
+      ],
+      "failing_test_recall": 1.0
+    },
+    {
+      "budget_s": 28,
+      "strategy": "random",
+      "seed": 6,
+      "estimated_duration_s": 28,
+      "selected": [
+        "sql_null",
+        "sql_window",
+        "sql_sort",
+        "sql_join",
+        "sql_aggregate",
+        "sql_distinct",
+        "sql_filter",
+        "sql_cast"
+      ],
+      "failing_test_recall": 1.0
+    },
+    {
+      "budget_s": 28,
+      "strategy": "random",
+      "seed": 7,
+      "estimated_duration_s": 28,
+      "selected": [
+        "sql_sort",
+        "sql_window",
+        "sql_distinct",
+        "sql_join",
+        "sql_aggregate",
+        "sql_filter",
+        "sql_cast",
+        "sql_null"
+      ],
+      "failing_test_recall": 1.0
+    },
+    {
+      "budget_s": 28,
+      "strategy": "random",
+      "seed": 8,
+      "estimated_duration_s": 28,
+      "selected": [
+        "sql_null",
+        "sql_aggregate",
+        "sql_sort",
+        "sql_join",
+        "sql_cast",
+        "sql_window",
+        "sql_distinct",
+        "sql_filter"
+      ],
+      "failing_test_recall": 1.0
+    },
+    {
+      "budget_s": 28,
+      "strategy": "random",
+      "seed": 9,
+      "estimated_duration_s": 28,
+      "selected": [
+        "sql_filter",
+        "sql_sort",
+        "sql_aggregate",
+        "sql_cast",
+        "sql_null",
+        "sql_distinct",
+        "sql_join",
+        "sql_window"
+      ],
+      "failing_test_recall": 1.0
+    },
+    {
+      "budget_s": 28,
+      "strategy": "failure",
+      "seed": 0,
+      "estimated_duration_s": 28,
+      "selected": [
+        "sql_join",
+        "sql_aggregate",
+        "sql_window",
+        "sql_null",
+        "sql_cast",
+        "sql_filter",
+        "sql_distinct",
+        "sql_sort"
+      ],
+      "failing_test_recall": 1.0
+    },
+    {
+      "budget_s": 28,
+      "strategy": "cheapest",
+      "seed": 0,
+      "estimated_duration_s": 28,
+      "selected": [
+        "sql_filter",
+        "sql_sort",
+        "sql_distinct",
+        "sql_null",
+        "sql_cast",
+        "sql_aggregate",
+        "sql_window",
+        "sql_join"
+      ],
+      "failing_test_recall": 1.0
+    },
+    {
+      "budget_s": 28,
+      "strategy": "change",
+      "seed": 0,
+      "estimated_duration_s": 28,
+      "selected": [
+        "sql_join",
+        "sql_aggregate",
+        "sql_null",
+        "sql_window",
+        "sql_cast",
+        "sql_filter",
+        "sql_distinct",
+        "sql_sort"
+      ],
+      "failing_test_recall": 1.0
+    },
+    {
+      "budget_s": 28,
+      "strategy": "budget",
+      "seed": 0,
+      "estimated_duration_s": 28,
+      "selected": [
+        "sql_filter",
+        "sql_aggregate",
+        "sql_null",
+        "sql_join",
+        "sql_sort",
+        "sql_window",
+        "sql_cast",
+        "sql_distinct"
+      ],
+      "failing_test_recall": 1.0
+    }
+  ]
+}

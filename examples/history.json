@@ -1,0 +1,58 @@
+[
+  {
+    "id": "sql_join",
+    "duration_s": 8,
+    "runs": 20,
+    "failures": 5,
+    "change_score": 1
+  },
+  {
+    "id": "sql_null",
+    "duration_s": 2,
+    "runs": 20,
+    "failures": 2,
+    "change_score": 0.5
+  },
+  {
+    "id": "sql_aggregate",
+    "duration_s": 4,
+    "runs": 20,
+    "failures": 4,
+    "change_score": 0.8
+  },
+  {
+    "id": "sql_sort",
+    "duration_s": 1,
+    "runs": 20,
+    "failures": 0,
+    "change_score": 0
+  },
+  {
+    "id": "sql_window",
+    "duration_s": 7,
+    "runs": 20,
+    "failures": 3,
+    "change_score": 0.5
+  },
+  {
+    "id": "sql_cast",
+    "duration_s": 3,
+    "runs": 20,
+    "failures": 1,
+    "change_score": 0.2
+  },
+  {
+    "id": "sql_distinct",
+    "duration_s": 2,
+    "runs": 20,
+    "failures": 0,
+    "change_score": 0
+  },
+  {
+    "id": "sql_filter",
+    "duration_s": 1,
+    "runs": 20,
+    "failures": 1,
+    "change_score": 0.2
+  }
+]

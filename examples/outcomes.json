@@ -1,0 +1,10 @@
+{
+  "sql_join": "fail",
+  "sql_null": "fail",
+  "sql_aggregate": "pass",
+  "sql_sort": "pass",
+  "sql_window": "pass",
+  "sql_cast": "fail",
+  "sql_distinct": "pass",
+  "sql_filter": "pass"
+}
