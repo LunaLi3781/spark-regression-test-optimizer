@@ -16,3 +16,16 @@ For future data, record public URL, revision, retrieval date, license, generatio
 procedure and any transformations. Do not include employer-owned material without
 explicit authorization. This provenance record describes the inputs used here;
 it is not a legal determination of ownership of future contributions.
+
+## Public historical defect fixture
+
+SPARK-52788 independently reproduced using new sample data and a Python harness.
+Public issue description and fix were consulted; no upstream source file or test
+was copied into this MIT repository. Upstream fix authors retain credit.
+- https://issues.apache.org/jira/browse/SPARK-52788
+- https://github.com/apache/spark/pull/51610
+- https://spark.apache.org/releases/spark-release-4-0-1.html
+
+The issue affects 4.0.0 and is fixed in 4.0.1. This is a historical defect
+reproduction, not a claim that we discovered or fixed it, nor proof of regression
+from 3.5.3 (built-in XML support differs across versions).

@@ -48,3 +48,26 @@ jobs:
         with:
           name: spark-smoke-${{ matrix.spark }}
           path: results/
+  historical-bug:
+    if: github.event_name == 'workflow_dispatch'
+    strategy:
+      fail-fast: false
+      matrix:
+        spark: ['4.0.0', '4.0.1']
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - run: python -m pip install pyspark==${{ matrix.spark }}
+      - run: python -m scripts.reproduce_52788 --output results/SPARK-52788.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: SPARK-52788-${{ matrix.spark }}
+          path: results/

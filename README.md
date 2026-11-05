@@ -61,7 +61,7 @@ performance improvements on Spark or report APFD/APFDc.
 
 ## Real Spark smoke tests
 
-Eight original public-API tests cover joins, aggregates, nulls, sorting, filters,
+Twenty original public-API tests cover joins, aggregates, nulls, sorting, filters,
 casts, distinct and windows. They are small correctness smoke tests, not the
 Apache Spark regression suite. Install Java 17 and use an isolated Python 3.11
 environment for the initial pinned reproducibility target (not a latest-version recommendation):
@@ -88,7 +88,7 @@ metadata separately, and do not mix incompatible environments blindly.
 
 For an upgrade study, create separate environments for the baseline and target
 versions, verify each version's published Python/Java requirements, and run the
-same tests/data/configuration. Expand beyond these eight tests using public
+same tests/data/configuration. Expand beyond these twenty tests using public
 regression reproductions. See [research protocol](docs/EXPERIMENTS.md).
 
 ## Repository map
@@ -115,3 +115,7 @@ See [provenance](docs/PROVENANCE.md) and [contribution rules](CONTRIBUTING.md).
 
 Start with [GitHub publishing and Spark upstream steps](docs/PUBLISH_AND_UPSTREAM.md).
 Local validation is recorded in [VALIDATION.md](docs/VALIDATION.md).
+
+Historical bug reproduction: `python -m scripts.reproduce_52788 --output results/bug.json`
+in isolated PySpark 4.0.0 and 4.0.1 environments. CI verifies the known failure
+on 4.0.0 and correct XML on 4.0.1; this is not a newly discovered bug.
