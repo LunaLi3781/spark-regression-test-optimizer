@@ -1,0 +1,13 @@
+{
+  "reference_failures": [],
+  "selected_reference_failures": [],
+  "missed_reference_failures": [],
+  "observed_selected_failures": [],
+  "outcome_disagreements": [],
+  "failing_test_recall": null,
+  "observed_test_s": 5.898409121000043,
+  "observed_wall_s": 8.993565510999986,
+  "wall_budget_overrun_s": 6.993565510999986,
+  "budget_s": 2.0,
+  "estimated_test_s": 1.9012529294999894
+}

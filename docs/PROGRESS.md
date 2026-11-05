@@ -42,3 +42,10 @@ validated against real held-out failures. No upstream PR has been submitted.
 
 This is a functioning engineering prototype plus an initial real-defect fixture,
 not yet evidence of algorithm superiority, adoption, a paper or upstream acceptance.
+
+## Closed-loop update
+
+History aggregation, exact selected-test execution and independent full-reference
+evaluation are now implemented and verified in CI. Core coverage is now 23 tests.
+See [measured results](CLOSED_LOOP_RESULTS.md). Priorities 1–2 above are complete
+for the smoke-suite MVP; cross-version defect-corpus integration remains open.
