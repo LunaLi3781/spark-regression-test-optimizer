@@ -77,8 +77,8 @@ Repeat runs and retain logs. The collector records Spark/Python/platform metadat
 per-test duration/outcome and whole-suite wall time; it exits nonzero on failures
 or errors. JVM setup/teardown and shared-session overhead are excluded from
 individual durations but included in wall time. This means the selection budget
-is an **estimate**, not a hard CI wall-clock limit. No selected-test execution,
-parallel scheduler, coverage analysis or automatic history aggregation exists yet.
+is an **estimate**, not a hard CI wall-clock limit. Selected-test execution and strict history aggregation are now available through
+the closed-loop runner below. Parallel scheduling and coverage inference remain future work.
 
 To prepare measured features, group prior successful infrastructure runs by stable
 test ID; use median durations, count completed pass/fail outcomes and record
@@ -122,3 +122,30 @@ on 4.0.0 and correct XML on 4.0.1; this is not a newly discovered bug.
 
 Latest status: [completed work and next priorities](docs/PROGRESS.md), including
 120 expanded cross-version test executions and the verified historical defect.
+
+## Measured selection loop
+
+With PySpark and Java installed, run from the repository root:
+
+```bash
+python -m scripts.run_closed_loop --output-dir results/new-loop --budget 2 --strategy budget
+```
+
+Use a new output directory each time. This runs two full historical suites in fresh
+processes, builds median duration and completed pass/fail counts, freezes selection,
+then runs an independent full reference and the selected subset in fresh processes.
+The output directory contains raw runs/logs, features, plan and evaluation JSON.
+No target outcomes enter the selector. Timestamped histories must precede the
+cutoff, have matching Spark/Python/platform and identical candidate inventories.
+Errors reject a run; skips are excluded from history counts, and candidates with
+no completed observation are rejected. Missing/new tests need an explicit future
+cold-start policy, rather than being silently omitted.
+
+Evaluation reports full-reference failures missed by selection, actual selected
+failures, discrepancies between runs, undefined recall when no reference test
+fails, observed test duration, whole-suite wall time and wall-budget overrun.
+The budget constrains estimated test cost; JVM startup and fixture overhead may
+cause wall time to exceed it. This runner does not kill tests at the budget limit.
+Run-level timestamps identify ordering, not proof of identical hardware/config.
+Keep the same source/configuration while executing a loop. This first loop uses
+one Spark version per invocation; historical-defect fixtures are still separate.
