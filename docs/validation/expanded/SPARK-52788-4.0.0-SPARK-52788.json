@@ -1,0 +1,8 @@
+{
+  "issue": "SPARK-52788",
+  "spark_version": "4.0.0",
+  "control_passed": true,
+  "observed": "known_binary_xml_error",
+  "error": "Failed to convert value [B@128fbee2 (class of class [B) in type BinaryType to XML.",
+  "matches_expectation": true
+}

@@ -119,3 +119,6 @@ Local validation is recorded in [VALIDATION.md](docs/VALIDATION.md).
 Historical bug reproduction: `python -m scripts.reproduce_52788 --output results/bug.json`
 in isolated PySpark 4.0.0 and 4.0.1 environments. CI verifies the known failure
 on 4.0.0 and correct XML on 4.0.1; this is not a newly discovered bug.
+
+Latest status: [completed work and next priorities](docs/PROGRESS.md), including
+120 expanded cross-version test executions and the verified historical defect.
