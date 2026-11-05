@@ -101,7 +101,9 @@ regression reproductions. See [research protocol](docs/EXPERIMENTS.md).
 - `docs/`: provenance, experiment protocol and publishing/upstream steps
 
 CI installs the package and exercises the CLI on Python 3.9, 3.11 and 3.12.
-The real Spark job runs only with **Actions → CI → Run workflow** to keep routine
+The real Spark matrix compares pinned 3.5.3 and 4.0.0 with three fresh JVM runs each
+on Python 3.11 / Java 17. Hosted runners may differ, so timings are descriptive,
+not a controlled performance comparison. The real Spark job runs only with **Actions → CI → Run workflow** to keep routine
 CI lightweight. No cloud account or credentials are needed.
 
 ## Provenance and contribution
