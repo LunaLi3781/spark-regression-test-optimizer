@@ -1,0 +1,80 @@
+{
+  "pairs": [
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "missed_reference_failures": [],
+      "observed_selected_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "outcome_disagreements": [],
+      "failing_test_recall": 1.0,
+      "observed_test_s": 2.474782190999804,
+      "observed_wall_s": 9.736533302999987,
+      "wall_budget_overrun_s": 7.736533302999987,
+      "budget_s": 2.0,
+      "estimated_test_s": 1.951095121499975,
+      "pair": 0,
+      "reference_process_wall_s": 12.744733240999949,
+      "selected_process_wall_s": 9.883019770999965,
+      "process_time_saved_s": 2.8617134699999838,
+      "process_budget_overrun_s": 7.883019770999965,
+      "reference_timing": {
+        "spark_startup_s": 4.633990421000021,
+        "warmup_s": 2.387876899000048,
+        "cleanup_s": 1.0454547130000265,
+        "test_execution_s": 4.524952262000056,
+        "other_collector_s": 0.005987205999815615
+      },
+      "selected_timing": {
+        "spark_startup_s": 4.4701991059999955,
+        "warmup_s": 2.363620550999997,
+        "cleanup_s": 0.42213182599999755,
+        "test_execution_s": 2.474782190999804,
+        "other_collector_s": 0.005799629000193818
+      }
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "missed_reference_failures": [],
+      "observed_selected_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "outcome_disagreements": [],
+      "failing_test_recall": 1.0,
+      "observed_test_s": 2.6105774679998603,
+      "observed_wall_s": 9.68228938499999,
+      "wall_budget_overrun_s": 7.68228938499999,
+      "budget_s": 2.0,
+      "estimated_test_s": 1.951095121499975,
+      "pair": 1,
+      "reference_process_wall_s": 13.231930163000015,
+      "selected_process_wall_s": 9.831732875,
+      "process_time_saved_s": 3.4001972880000153,
+      "process_budget_overrun_s": 7.831732875,
+      "reference_timing": {
+        "spark_startup_s": 4.746242660000007,
+        "warmup_s": 2.4535273190000453,
+        "cleanup_s": 0.9896080270000311,
+        "test_execution_s": 4.876015908999932,
+        "other_collector_s": 0.00605369899994912
+      },
+      "selected_timing": {
+        "spark_startup_s": 4.3717507800000135,
+        "warmup_s": 2.4964659859999756,
+        "cleanup_s": 0.19779113300000972,
+        "test_execution_s": 2.6105774679998603,
+        "other_collector_s": 0.005704018000130873
+      }
+    }
+  ]
+}

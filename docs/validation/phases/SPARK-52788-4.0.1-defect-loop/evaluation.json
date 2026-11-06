@@ -1,0 +1,68 @@
+{
+  "pairs": [
+    {
+      "reference_failures": [],
+      "selected_reference_failures": [],
+      "missed_reference_failures": [],
+      "observed_selected_failures": [],
+      "outcome_disagreements": [],
+      "failing_test_recall": null,
+      "observed_test_s": 2.4148862690000072,
+      "observed_wall_s": 9.889589070999989,
+      "wall_budget_overrun_s": 7.889589070999989,
+      "budget_s": 2.0,
+      "estimated_test_s": 1.7702767934999883,
+      "pair": 0,
+      "reference_process_wall_s": 12.789572866,
+      "selected_process_wall_s": 10.048475226000008,
+      "process_time_saved_s": 2.7410976399999925,
+      "process_budget_overrun_s": 8.048475226000008,
+      "reference_timing": {
+        "spark_startup_s": 4.409176474999995,
+        "warmup_s": 2.404847149999995,
+        "cleanup_s": 1.0775217970000028,
+        "test_execution_s": 4.739661588000018,
+        "other_collector_s": 0.006065474999999765
+      },
+      "selected_timing": {
+        "spark_startup_s": 4.673555203999996,
+        "warmup_s": 2.5002750109999994,
+        "cleanup_s": 0.29453153999999415,
+        "test_execution_s": 2.4148862690000072,
+        "other_collector_s": 0.0063410469999922725
+      }
+    },
+    {
+      "reference_failures": [],
+      "selected_reference_failures": [],
+      "missed_reference_failures": [],
+      "observed_selected_failures": [],
+      "outcome_disagreements": [],
+      "failing_test_recall": null,
+      "observed_test_s": 2.510918211999993,
+      "observed_wall_s": 9.77831390099999,
+      "wall_budget_overrun_s": 7.77831390099999,
+      "budget_s": 2.0,
+      "estimated_test_s": 1.7702767934999883,
+      "pair": 1,
+      "reference_process_wall_s": 13.003814950000006,
+      "selected_process_wall_s": 9.948892371999989,
+      "process_time_saved_s": 3.054922578000017,
+      "process_budget_overrun_s": 7.948892371999989,
+      "reference_timing": {
+        "spark_startup_s": 4.416697354000007,
+        "warmup_s": 2.489908829000001,
+        "cleanup_s": 1.0249617469999919,
+        "test_execution_s": 4.906269479000002,
+        "other_collector_s": 0.005738843000003158
+      },
+      "selected_timing": {
+        "spark_startup_s": 4.55556125599999,
+        "warmup_s": 2.4465649450000058,
+        "cleanup_s": 0.25861986900000034,
+        "test_execution_s": 2.510918211999993,
+        "other_collector_s": 0.006649619000000939
+      }
+    }
+  ]
+}

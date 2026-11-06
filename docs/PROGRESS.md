@@ -49,3 +49,9 @@ History aggregation, exact selected-test execution and independent full-referenc
 evaluation are now implemented and verified in CI. Core coverage is now 23 tests.
 See [measured results](CLOSED_LOOP_RESULTS.md). Priorities 1–2 above are complete
 for the smoke-suite MVP; cross-version defect-corpus integration remains open.
+
+## Lifecycle and defect integration update (2026-11-05)
+
+31 unit tests now pass. The recurring SPARK-52788 defect is integrated into
+selection with phase timing and alternating paired runs. See [results](PHASE_RESULTS.md).
+The small measured savings do not establish general optimizer superiority.

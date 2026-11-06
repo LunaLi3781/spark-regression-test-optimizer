@@ -1,0 +1,22 @@
+[
+  "test_spark_sql.SparkSQLTests.test_null_safe_equality",
+  "test_spark_sql.SparkSQLTests.test_try_cast",
+  "test_spark_sql.SparkSQLTests.test_map",
+  "test_spark_sql.SparkSQLTests.test_explode",
+  "test_spark_sql.SparkSQLTests.test_coalesce",
+  "test_spark_sql.SparkSQLTests.test_decimal",
+  "test_spark_sql.SparkSQLTests.test_cast",
+  "test_spark_sql.SparkSQLTests.test_date",
+  "test_spark_sql.SparkSQLTests.test_json",
+  "test_spark_sql.SparkSQLTests.test_empty_aggregate",
+  "test_spark_sql.SparkSQLTests.test_xml_binary",
+  "test_spark_sql.SparkSQLTests.test_union_all",
+  "test_spark_sql.SparkSQLTests.test_left_join",
+  "test_spark_sql.SparkSQLTests.test_window",
+  "test_spark_sql.SparkSQLTests.test_filter",
+  "test_spark_sql.SparkSQLTests.test_array",
+  "test_spark_sql.SparkSQLTests.test_aggregate",
+  "test_spark_sql.SparkSQLTests.test_sort",
+  "test_spark_sql.SparkSQLTests.test_join",
+  "test_spark_sql.SparkSQLTests.test_null"
+]

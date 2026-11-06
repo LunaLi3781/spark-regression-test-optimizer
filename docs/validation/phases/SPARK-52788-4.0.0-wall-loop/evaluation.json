@@ -1,0 +1,80 @@
+{
+  "pairs": [
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "missed_reference_failures": [],
+      "observed_selected_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "outcome_disagreements": [],
+      "failing_test_recall": 1.0,
+      "observed_test_s": 4.463589822000074,
+      "observed_wall_s": 11.748815320000006,
+      "wall_budget_overrun_s": 0,
+      "budget_s": 12.0,
+      "estimated_test_s": 3.462749638500071,
+      "pair": 0,
+      "reference_process_wall_s": 12.278319798999974,
+      "selected_process_wall_s": 11.902128352999966,
+      "process_time_saved_s": 0.3761914460000071,
+      "process_budget_overrun_s": 0,
+      "reference_timing": {
+        "spark_startup_s": 4.302455482000028,
+        "warmup_s": 2.2918666560000247,
+        "cleanup_s": 1.0072458949999827,
+        "test_execution_s": 4.517472163000093,
+        "other_collector_s": 0.0057927659998995296
+      },
+      "selected_timing": {
+        "spark_startup_s": 4.557272642999976,
+        "warmup_s": 2.3791433119999965,
+        "cleanup_s": 0.3424662040000044,
+        "test_execution_s": 4.463589822000074,
+        "other_collector_s": 0.00634333899995454
+      }
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "missed_reference_failures": [],
+      "observed_selected_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "outcome_disagreements": [],
+      "failing_test_recall": 1.0,
+      "observed_test_s": 4.278872931999899,
+      "observed_wall_s": 11.455691536000018,
+      "wall_budget_overrun_s": 0,
+      "budget_s": 12.0,
+      "estimated_test_s": 3.462749638500071,
+      "pair": 1,
+      "reference_process_wall_s": 13.193033716000002,
+      "selected_process_wall_s": 11.60760272799996,
+      "process_time_saved_s": 1.5854309880000415,
+      "process_budget_overrun_s": 0,
+      "reference_timing": {
+        "spark_startup_s": 4.536343891999991,
+        "warmup_s": 2.5268288180000127,
+        "cleanup_s": 0.9148865170000136,
+        "test_execution_s": 5.05107033000013,
+        "other_collector_s": 0.006012563999831855
+      },
+      "selected_timing": {
+        "spark_startup_s": 4.512762272000032,
+        "warmup_s": 2.3420360380000034,
+        "cleanup_s": 0.31607998700002327,
+        "test_execution_s": 4.278872931999899,
+        "other_collector_s": 0.0059403070000598746
+      }
+    }
+  ]
+}

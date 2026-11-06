@@ -179,3 +179,5 @@ failure: this experiment measures selection of a **recurring known defect**, not
 prediction of a novel regression. Runs remain within one version per invocation.
 The two budget modes use different budgets and separate histories; their results
 are diagnostics, not a controlled algorithm superiority comparison.
+
+Latest measured lifecycle/defect experiment: [results and limitations](docs/PHASE_RESULTS.md).
