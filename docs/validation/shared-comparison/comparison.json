@@ -1,0 +1,773 @@
+{
+  "rows": [
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [],
+      "missed_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "observed_selected_failures": [],
+      "outcome_disagreements": [],
+      "failing_test_recall": 0.0,
+      "observed_test_s": 2.1077111010000067,
+      "observed_wall_s": 7.800842609,
+      "wall_budget_overrun_s": 6.800842609,
+      "budget_s": 1.0,
+      "estimated_test_s": 0.9947080920000069,
+      "plan_id": "b0-random-0",
+      "round": 0,
+      "strategy": "random",
+      "seed": 0,
+      "selected_count": 6,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 7.914934295000023,
+      "reference_process_wall_s": 9.109673177000005,
+      "process_time_saved_s": 1.1947388819999816
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "missed_reference_failures": [],
+      "observed_selected_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "outcome_disagreements": [],
+      "failing_test_recall": 1.0,
+      "observed_test_s": 1.5328702449999696,
+      "observed_wall_s": 7.030074226000011,
+      "wall_budget_overrun_s": 6.030074226000011,
+      "budget_s": 1.0,
+      "estimated_test_s": 0.9885520240000183,
+      "plan_id": "b0-random-1",
+      "round": 0,
+      "strategy": "random",
+      "seed": 1,
+      "selected_count": 8,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 7.143932492999994,
+      "reference_process_wall_s": 9.109673177000005,
+      "process_time_saved_s": 1.9657406840000107
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "missed_reference_failures": [],
+      "observed_selected_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "outcome_disagreements": [],
+      "failing_test_recall": 1.0,
+      "observed_test_s": 2.0296643390000497,
+      "observed_wall_s": 7.781492890999999,
+      "wall_budget_overrun_s": 6.781492890999999,
+      "budget_s": 1.0,
+      "estimated_test_s": 0.979350740999994,
+      "plan_id": "b0-random-2",
+      "round": 0,
+      "strategy": "random",
+      "seed": 2,
+      "selected_count": 8,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 7.896999125999997,
+      "reference_process_wall_s": 9.109673177000005,
+      "process_time_saved_s": 1.2126740510000076
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "missed_reference_failures": [],
+      "observed_selected_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "outcome_disagreements": [],
+      "failing_test_recall": 1.0,
+      "observed_test_s": 1.0824744929999497,
+      "observed_wall_s": 6.449063494000001,
+      "wall_budget_overrun_s": 5.449063494000001,
+      "budget_s": 1.0,
+      "estimated_test_s": 0.9866999755000059,
+      "plan_id": "b0-failure-0",
+      "round": 0,
+      "strategy": "failure",
+      "seed": 0,
+      "selected_count": 8,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 6.563641175999976,
+      "reference_process_wall_s": 9.109673177000005,
+      "process_time_saved_s": 2.546032001000029
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [],
+      "missed_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "observed_selected_failures": [],
+      "outcome_disagreements": [],
+      "failing_test_recall": 0.0,
+      "observed_test_s": 1.4544835660000217,
+      "observed_wall_s": 7.0925702020000045,
+      "wall_budget_overrun_s": 6.0925702020000045,
+      "budget_s": 1.0,
+      "estimated_test_s": 0.986592047000002,
+      "plan_id": "b0-cheapest-0",
+      "round": 0,
+      "strategy": "cheapest",
+      "seed": 0,
+      "selected_count": 12,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 7.208070271999986,
+      "reference_process_wall_s": 9.109673177000005,
+      "process_time_saved_s": 1.9016029050000185
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [],
+      "missed_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "observed_selected_failures": [],
+      "outcome_disagreements": [],
+      "failing_test_recall": 0.0,
+      "observed_test_s": 1.000444846999983,
+      "observed_wall_s": 6.495378138000007,
+      "wall_budget_overrun_s": 5.495378138000007,
+      "budget_s": 1.0,
+      "estimated_test_s": 0.9691662775000047,
+      "plan_id": "b0-change-0",
+      "round": 0,
+      "strategy": "change",
+      "seed": 0,
+      "selected_count": 9,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 6.609444916000001,
+      "reference_process_wall_s": 9.109673177000005,
+      "process_time_saved_s": 2.5002282610000037
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "missed_reference_failures": [],
+      "observed_selected_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "outcome_disagreements": [],
+      "failing_test_recall": 1.0,
+      "observed_test_s": 1.090536161000017,
+      "observed_wall_s": 6.55489507499999,
+      "wall_budget_overrun_s": 5.55489507499999,
+      "budget_s": 1.0,
+      "estimated_test_s": 0.8974985630000099,
+      "plan_id": "b0-budget-0",
+      "round": 0,
+      "strategy": "budget",
+      "seed": 0,
+      "selected_count": 11,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 6.668654676000003,
+      "reference_process_wall_s": 9.109673177000005,
+      "process_time_saved_s": 2.441018501000002
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "missed_reference_failures": [],
+      "observed_selected_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "outcome_disagreements": [],
+      "failing_test_recall": 1.0,
+      "observed_test_s": 2.8681624090000355,
+      "observed_wall_s": 8.979051690999995,
+      "wall_budget_overrun_s": 6.979051690999995,
+      "budget_s": 2.0,
+      "estimated_test_s": 1.9496800770000213,
+      "plan_id": "b1-random-0",
+      "round": 0,
+      "strategy": "random",
+      "seed": 0,
+      "selected_count": 16,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 9.098597662000003,
+      "reference_process_wall_s": 9.109673177000005,
+      "process_time_saved_s": 0.011075515000001701
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "missed_reference_failures": [],
+      "observed_selected_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "outcome_disagreements": [],
+      "failing_test_recall": 1.0,
+      "observed_test_s": 2.9681028720000313,
+      "observed_wall_s": 8.220937563000007,
+      "wall_budget_overrun_s": 6.220937563000007,
+      "budget_s": 2.0,
+      "estimated_test_s": 1.993227913000009,
+      "plan_id": "b1-random-1",
+      "round": 0,
+      "strategy": "random",
+      "seed": 1,
+      "selected_count": 14,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 8.336270200000001,
+      "reference_process_wall_s": 9.109673177000005,
+      "process_time_saved_s": 0.7734029770000035
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "missed_reference_failures": [],
+      "observed_selected_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "outcome_disagreements": [],
+      "failing_test_recall": 1.0,
+      "observed_test_s": 2.9039073520000898,
+      "observed_wall_s": 8.917456434000016,
+      "wall_budget_overrun_s": 6.917456434000016,
+      "budget_s": 2.0,
+      "estimated_test_s": 1.9642270650000029,
+      "plan_id": "b1-random-2",
+      "round": 0,
+      "strategy": "random",
+      "seed": 2,
+      "selected_count": 15,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 9.032425735000004,
+      "reference_process_wall_s": 9.109673177000005,
+      "process_time_saved_s": 0.07724744200000089
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "missed_reference_failures": [],
+      "observed_selected_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "outcome_disagreements": [],
+      "failing_test_recall": 1.0,
+      "observed_test_s": 1.9503713409999364,
+      "observed_wall_s": 8.048591468000012,
+      "wall_budget_overrun_s": 6.048591468000012,
+      "budget_s": 2.0,
+      "estimated_test_s": 1.981856703000009,
+      "plan_id": "b1-failure-0",
+      "round": 0,
+      "strategy": "failure",
+      "seed": 0,
+      "selected_count": 8,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 8.162968831,
+      "reference_process_wall_s": 9.109673177000005,
+      "process_time_saved_s": 0.9467043460000042
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "missed_reference_failures": [],
+      "observed_selected_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "outcome_disagreements": [],
+      "failing_test_recall": 1.0,
+      "observed_test_s": 2.2678016709999724,
+      "observed_wall_s": 7.6307825179999895,
+      "wall_budget_overrun_s": 5.6307825179999895,
+      "budget_s": 2.0,
+      "estimated_test_s": 1.8737941085000038,
+      "plan_id": "b1-cheapest-0",
+      "round": 0,
+      "strategy": "cheapest",
+      "seed": 0,
+      "selected_count": 17,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 7.761866148999999,
+      "reference_process_wall_s": 9.109673177000005,
+      "process_time_saved_s": 1.3478070280000054
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [],
+      "missed_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "observed_selected_failures": [],
+      "outcome_disagreements": [],
+      "failing_test_recall": 0.0,
+      "observed_test_s": 2.0217448650000165,
+      "observed_wall_s": 7.862635312000009,
+      "wall_budget_overrun_s": 5.862635312000009,
+      "budget_s": 2.0,
+      "estimated_test_s": 1.986253731000005,
+      "plan_id": "b1-change-0",
+      "round": 0,
+      "strategy": "change",
+      "seed": 0,
+      "selected_count": 9,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 7.976808703000017,
+      "reference_process_wall_s": 9.109673177000005,
+      "process_time_saved_s": 1.1328644739999874
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "missed_reference_failures": [],
+      "observed_selected_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "outcome_disagreements": [],
+      "failing_test_recall": 1.0,
+      "observed_test_s": 2.2460506440000074,
+      "observed_wall_s": 8.008050423,
+      "wall_budget_overrun_s": 6.008050423,
+      "budget_s": 2.0,
+      "estimated_test_s": 1.8737941085000038,
+      "plan_id": "b1-budget-0",
+      "round": 0,
+      "strategy": "budget",
+      "seed": 0,
+      "selected_count": 17,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 8.122561009999998,
+      "reference_process_wall_s": 9.109673177000005,
+      "process_time_saved_s": 0.9871121670000065
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [],
+      "missed_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "observed_selected_failures": [],
+      "outcome_disagreements": [],
+      "failing_test_recall": 0.0,
+      "observed_test_s": 1.918695332999988,
+      "observed_wall_s": 7.787150234000023,
+      "wall_budget_overrun_s": 6.787150234000023,
+      "budget_s": 1.0,
+      "estimated_test_s": 0.9947080920000069,
+      "plan_id": "b0-random-0",
+      "round": 1,
+      "strategy": "random",
+      "seed": 0,
+      "selected_count": 6,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 7.900092822999994,
+      "reference_process_wall_s": 9.602080787000034,
+      "process_time_saved_s": 1.7019879640000397
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "missed_reference_failures": [],
+      "observed_selected_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "outcome_disagreements": [],
+      "failing_test_recall": 1.0,
+      "observed_test_s": 1.2820949510000048,
+      "observed_wall_s": 6.969049208999991,
+      "wall_budget_overrun_s": 5.969049208999991,
+      "budget_s": 1.0,
+      "estimated_test_s": 0.9885520240000183,
+      "plan_id": "b0-random-1",
+      "round": 1,
+      "strategy": "random",
+      "seed": 1,
+      "selected_count": 8,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 7.085243479000013,
+      "reference_process_wall_s": 9.602080787000034,
+      "process_time_saved_s": 2.516837308000021
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "missed_reference_failures": [],
+      "observed_selected_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "outcome_disagreements": [],
+      "failing_test_recall": 1.0,
+      "observed_test_s": 2.0175913670000227,
+      "observed_wall_s": 7.8654816259999905,
+      "wall_budget_overrun_s": 6.8654816259999905,
+      "budget_s": 1.0,
+      "estimated_test_s": 0.979350740999994,
+      "plan_id": "b0-random-2",
+      "round": 1,
+      "strategy": "random",
+      "seed": 2,
+      "selected_count": 8,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 7.978310071999999,
+      "reference_process_wall_s": 9.602080787000034,
+      "process_time_saved_s": 1.6237707150000347
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "missed_reference_failures": [],
+      "observed_selected_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "outcome_disagreements": [],
+      "failing_test_recall": 1.0,
+      "observed_test_s": 1.1330649449999157,
+      "observed_wall_s": 6.586906040999992,
+      "wall_budget_overrun_s": 5.586906040999992,
+      "budget_s": 1.0,
+      "estimated_test_s": 0.9866999755000059,
+      "plan_id": "b0-failure-0",
+      "round": 1,
+      "strategy": "failure",
+      "seed": 0,
+      "selected_count": 8,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 6.714137353000012,
+      "reference_process_wall_s": 9.602080787000034,
+      "process_time_saved_s": 2.8879434340000216
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [],
+      "missed_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "observed_selected_failures": [],
+      "outcome_disagreements": [],
+      "failing_test_recall": 0.0,
+      "observed_test_s": 1.1941947659999528,
+      "observed_wall_s": 6.477839209999956,
+      "wall_budget_overrun_s": 5.477839209999956,
+      "budget_s": 1.0,
+      "estimated_test_s": 0.986592047000002,
+      "plan_id": "b0-cheapest-0",
+      "round": 1,
+      "strategy": "cheapest",
+      "seed": 0,
+      "selected_count": 12,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 6.59188700499999,
+      "reference_process_wall_s": 9.602080787000034,
+      "process_time_saved_s": 3.0101937820000444
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [],
+      "missed_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "observed_selected_failures": [],
+      "outcome_disagreements": [],
+      "failing_test_recall": 0.0,
+      "observed_test_s": 1.173915825999984,
+      "observed_wall_s": 6.44184679,
+      "wall_budget_overrun_s": 5.44184679,
+      "budget_s": 1.0,
+      "estimated_test_s": 0.9691662775000047,
+      "plan_id": "b0-change-0",
+      "round": 1,
+      "strategy": "change",
+      "seed": 0,
+      "selected_count": 9,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 6.556206259999982,
+      "reference_process_wall_s": 9.602080787000034,
+      "process_time_saved_s": 3.045874527000052
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "missed_reference_failures": [],
+      "observed_selected_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "outcome_disagreements": [],
+      "failing_test_recall": 1.0,
+      "observed_test_s": 1.254381280999894,
+      "observed_wall_s": 6.9827845880000154,
+      "wall_budget_overrun_s": 5.9827845880000154,
+      "budget_s": 1.0,
+      "estimated_test_s": 0.8974985630000099,
+      "plan_id": "b0-budget-0",
+      "round": 1,
+      "strategy": "budget",
+      "seed": 0,
+      "selected_count": 11,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 7.096835641000041,
+      "reference_process_wall_s": 9.602080787000034,
+      "process_time_saved_s": 2.505245145999993
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "missed_reference_failures": [],
+      "observed_selected_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "outcome_disagreements": [],
+      "failing_test_recall": 1.0,
+      "observed_test_s": 2.897109496000155,
+      "observed_wall_s": 8.957201115999965,
+      "wall_budget_overrun_s": 6.957201115999965,
+      "budget_s": 2.0,
+      "estimated_test_s": 1.9496800770000213,
+      "plan_id": "b1-random-0",
+      "round": 1,
+      "strategy": "random",
+      "seed": 0,
+      "selected_count": 16,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 9.07192717199996,
+      "reference_process_wall_s": 9.602080787000034,
+      "process_time_saved_s": 0.5301536150000743
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "missed_reference_failures": [],
+      "observed_selected_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "outcome_disagreements": [],
+      "failing_test_recall": 1.0,
+      "observed_test_s": 3.1574444520000498,
+      "observed_wall_s": 8.531474866999986,
+      "wall_budget_overrun_s": 6.531474866999986,
+      "budget_s": 2.0,
+      "estimated_test_s": 1.993227913000009,
+      "plan_id": "b1-random-1",
+      "round": 1,
+      "strategy": "random",
+      "seed": 1,
+      "selected_count": 14,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 8.64647392500001,
+      "reference_process_wall_s": 9.602080787000034,
+      "process_time_saved_s": 0.9556068620000246
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "missed_reference_failures": [],
+      "observed_selected_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "outcome_disagreements": [],
+      "failing_test_recall": 1.0,
+      "observed_test_s": 2.8471409569999935,
+      "observed_wall_s": 8.762498717,
+      "wall_budget_overrun_s": 6.762498717,
+      "budget_s": 2.0,
+      "estimated_test_s": 1.9642270650000029,
+      "plan_id": "b1-random-2",
+      "round": 1,
+      "strategy": "random",
+      "seed": 2,
+      "selected_count": 15,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 8.87759562299999,
+      "reference_process_wall_s": 9.602080787000034,
+      "process_time_saved_s": 0.7244851640000434
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "missed_reference_failures": [],
+      "observed_selected_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "outcome_disagreements": [],
+      "failing_test_recall": 1.0,
+      "observed_test_s": 2.029828710999965,
+      "observed_wall_s": 8.074003364999982,
+      "wall_budget_overrun_s": 6.074003364999982,
+      "budget_s": 2.0,
+      "estimated_test_s": 1.981856703000009,
+      "plan_id": "b1-failure-0",
+      "round": 1,
+      "strategy": "failure",
+      "seed": 0,
+      "selected_count": 8,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 8.189472411999986,
+      "reference_process_wall_s": 9.602080787000034,
+      "process_time_saved_s": 1.4126083750000475
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "missed_reference_failures": [],
+      "observed_selected_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "outcome_disagreements": [],
+      "failing_test_recall": 1.0,
+      "observed_test_s": 2.187664869999935,
+      "observed_wall_s": 7.448795070000017,
+      "wall_budget_overrun_s": 5.448795070000017,
+      "budget_s": 2.0,
+      "estimated_test_s": 1.8737941085000038,
+      "plan_id": "b1-cheapest-0",
+      "round": 1,
+      "strategy": "cheapest",
+      "seed": 0,
+      "selected_count": 17,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 7.561712446999991,
+      "reference_process_wall_s": 9.602080787000034,
+      "process_time_saved_s": 2.040368340000043
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [],
+      "missed_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "observed_selected_failures": [],
+      "outcome_disagreements": [],
+      "failing_test_recall": 0.0,
+      "observed_test_s": 2.130319659000037,
+      "observed_wall_s": 8.009303842000008,
+      "wall_budget_overrun_s": 6.0093038420000084,
+      "budget_s": 2.0,
+      "estimated_test_s": 1.986253731000005,
+      "plan_id": "b1-change-0",
+      "round": 1,
+      "strategy": "change",
+      "seed": 0,
+      "selected_count": 9,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 8.128961666999999,
+      "reference_process_wall_s": 9.602080787000034,
+      "process_time_saved_s": 1.4731191200000353
+    },
+    {
+      "reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "selected_reference_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "missed_reference_failures": [],
+      "observed_selected_failures": [
+        "test_spark_sql.SparkSQLTests.test_xml_binary"
+      ],
+      "outcome_disagreements": [],
+      "failing_test_recall": 1.0,
+      "observed_test_s": 2.302123877000014,
+      "observed_wall_s": 7.915172060999993,
+      "wall_budget_overrun_s": 5.915172060999993,
+      "budget_s": 2.0,
+      "estimated_test_s": 1.8737941085000038,
+      "plan_id": "b1-budget-0",
+      "round": 1,
+      "strategy": "budget",
+      "seed": 0,
+      "selected_count": 17,
+      "feature_sha256": "af0c59f1c5c28db27f8dcf5d1267272d103cc666610311430b725f1fd590dbe3",
+      "process_wall_s": 8.031399574999995,
+      "reference_process_wall_s": 9.602080787000034,
+      "process_time_saved_s": 1.5706812120000393
+    }
+  ],
+  "completed_rounds": 2
+}

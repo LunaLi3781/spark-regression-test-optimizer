@@ -1,0 +1,81 @@
+{
+  "data_kind": "measured",
+  "run_id": "83ff9e8e-9fc0-449e-a164-3e721c029b88",
+  "started_at": "2026-11-06T19:49:29.962621+00:00",
+  "finished_at": "2026-11-06T19:49:37.968931+00:00",
+  "selected_ids": [
+    "test_spark_sql.SparkSQLTests.test_aggregate",
+    "test_spark_sql.SparkSQLTests.test_array",
+    "test_spark_sql.SparkSQLTests.test_cast",
+    "test_spark_sql.SparkSQLTests.test_coalesce",
+    "test_spark_sql.SparkSQLTests.test_date",
+    "test_spark_sql.SparkSQLTests.test_decimal",
+    "test_spark_sql.SparkSQLTests.test_distinct",
+    "test_spark_sql.SparkSQLTests.test_empty_aggregate",
+    "test_spark_sql.SparkSQLTests.test_explode"
+  ],
+  "spark_version": "4.0.0",
+  "python": "3.11.18",
+  "platform": "Linux-7.0.0-1019-azure-x86_64-with-glibc2.43",
+  "total_wall_s": 8.009303842000008,
+  "successful": true,
+  "errors": 0,
+  "failures": 0,
+  "tests": [
+    {
+      "id": "test_spark_sql.SparkSQLTests.test_aggregate",
+      "duration_s": 0.24992033399999514,
+      "outcome": "pass"
+    },
+    {
+      "id": "test_spark_sql.SparkSQLTests.test_array",
+      "duration_s": 0.22238483900000006,
+      "outcome": "pass"
+    },
+    {
+      "id": "test_spark_sql.SparkSQLTests.test_cast",
+      "duration_s": 0.11329935099999489,
+      "outcome": "pass"
+    },
+    {
+      "id": "test_spark_sql.SparkSQLTests.test_coalesce",
+      "duration_s": 0.10551709200001369,
+      "outcome": "pass"
+    },
+    {
+      "id": "test_spark_sql.SparkSQLTests.test_date",
+      "duration_s": 0.07504445399999327,
+      "outcome": "pass"
+    },
+    {
+      "id": "test_spark_sql.SparkSQLTests.test_decimal",
+      "duration_s": 0.08724714300001324,
+      "outcome": "pass"
+    },
+    {
+      "id": "test_spark_sql.SparkSQLTests.test_distinct",
+      "duration_s": 1.0871048570000141,
+      "outcome": "pass"
+    },
+    {
+      "id": "test_spark_sql.SparkSQLTests.test_empty_aggregate",
+      "duration_s": 0.09824593400000481,
+      "outcome": "pass"
+    },
+    {
+      "id": "test_spark_sql.SparkSQLTests.test_explode",
+      "duration_s": 0.09155565500000762,
+      "outcome": "pass"
+    }
+  ],
+  "timing": {
+    "spark_startup_s": 3.2778166270000213,
+    "warmup_s": 1.847949889000006,
+    "cleanup_s": 0.747136160999986,
+    "test_execution_s": 2.130319659000037,
+    "other_collector_s": 0.006081505999958381
+  },
+  "measurement_protocol": "warmup-range32-sum-v1",
+  "suite": "smoke+xml-52788",
+  "process_wall_s": 8.128961666999999
+}

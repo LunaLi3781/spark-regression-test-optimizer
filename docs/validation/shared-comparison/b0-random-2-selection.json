@@ -1,0 +1,10 @@
+[
+  "test_spark_sql.SparkSQLTests.test_join",
+  "test_spark_sql.SparkSQLTests.test_xml_binary",
+  "test_spark_sql.SparkSQLTests.test_empty_aggregate",
+  "test_spark_sql.SparkSQLTests.test_explode",
+  "test_spark_sql.SparkSQLTests.test_null",
+  "test_spark_sql.SparkSQLTests.test_left_join",
+  "test_spark_sql.SparkSQLTests.test_try_cast",
+  "test_spark_sql.SparkSQLTests.test_map"
+]

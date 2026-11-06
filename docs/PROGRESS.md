@@ -55,3 +55,11 @@ for the smoke-suite MVP; cross-version defect-corpus integration remains open.
 31 unit tests now pass. The recurring SPARK-52788 defect is integrated into
 selection with phase timing and alternating paired runs. See [results](PHASE_RESULTS.md).
 The small measured savings do not establish general optimizer superiority.
+
+## Shared-history update (2026-11-06)
+
+All five strategies now share frozen historical features and equal test-cost
+budgets. 35 unit tests pass; 28 actual target executions completed.
+[Results](SHARED_COMPARISON_RESULTS.md) show budget-dependent tradeoffs, not
+unconditional superiority of the budget heuristic. Next priority is independent
+defect diversity and meaningful pre-target change information.

@@ -1,0 +1,111 @@
+{
+  "data_kind": "measured",
+  "run_id": "96277ae3-0da2-433b-a6a2-1cf7e9f315e8",
+  "started_at": "2026-11-06T19:50:01.553417+00:00",
+  "finished_at": "2026-11-06T19:50:10.081912+00:00",
+  "selected_ids": [
+    "test_spark_sql.SparkSQLTests.test_xml_binary",
+    "test_spark_sql.SparkSQLTests.test_try_cast",
+    "test_spark_sql.SparkSQLTests.test_window",
+    "test_spark_sql.SparkSQLTests.test_json",
+    "test_spark_sql.SparkSQLTests.test_decimal",
+    "test_spark_sql.SparkSQLTests.test_filter",
+    "test_spark_sql.SparkSQLTests.test_aggregate",
+    "test_spark_sql.SparkSQLTests.test_null",
+    "test_spark_sql.SparkSQLTests.test_array",
+    "test_spark_sql.SparkSQLTests.test_sort",
+    "test_spark_sql.SparkSQLTests.test_join",
+    "test_spark_sql.SparkSQLTests.test_map",
+    "test_spark_sql.SparkSQLTests.test_empty_aggregate",
+    "test_spark_sql.SparkSQLTests.test_null_safe_equality"
+  ],
+  "spark_version": "4.0.0",
+  "python": "3.11.18",
+  "platform": "Linux-7.0.0-1019-azure-x86_64-with-glibc2.43",
+  "total_wall_s": 8.531474866999986,
+  "successful": false,
+  "errors": 0,
+  "failures": 1,
+  "tests": [
+    {
+      "id": "test_spark_sql.SparkSQLTests.test_xml_binary",
+      "duration_s": 0.30284413100002894,
+      "outcome": "fail"
+    },
+    {
+      "id": "test_spark_sql.SparkSQLTests.test_try_cast",
+      "duration_s": 0.10350518699999611,
+      "outcome": "pass"
+    },
+    {
+      "id": "test_spark_sql.SparkSQLTests.test_window",
+      "duration_s": 0.43758249499995827,
+      "outcome": "pass"
+    },
+    {
+      "id": "test_spark_sql.SparkSQLTests.test_json",
+      "duration_s": 0.14560769799999207,
+      "outcome": "pass"
+    },
+    {
+      "id": "test_spark_sql.SparkSQLTests.test_decimal",
+      "duration_s": 0.12364964500000042,
+      "outcome": "pass"
+    },
+    {
+      "id": "test_spark_sql.SparkSQLTests.test_filter",
+      "duration_s": 0.24817364099999395,
+      "outcome": "pass"
+    },
+    {
+      "id": "test_spark_sql.SparkSQLTests.test_aggregate",
+      "duration_s": 0.18404722999997603,
+      "outcome": "pass"
+    },
+    {
+      "id": "test_spark_sql.SparkSQLTests.test_null",
+      "duration_s": 0.8255618250000225,
+      "outcome": "pass"
+    },
+    {
+      "id": "test_spark_sql.SparkSQLTests.test_array",
+      "duration_s": 0.13113293800000747,
+      "outcome": "pass"
+    },
+    {
+      "id": "test_spark_sql.SparkSQLTests.test_sort",
+      "duration_s": 0.1818956870000079,
+      "outcome": "pass"
+    },
+    {
+      "id": "test_spark_sql.SparkSQLTests.test_join",
+      "duration_s": 0.26412857799999756,
+      "outcome": "pass"
+    },
+    {
+      "id": "test_spark_sql.SparkSQLTests.test_map",
+      "duration_s": 0.06739526500001602,
+      "outcome": "pass"
+    },
+    {
+      "id": "test_spark_sql.SparkSQLTests.test_empty_aggregate",
+      "duration_s": 0.08821255100002645,
+      "outcome": "pass"
+    },
+    {
+      "id": "test_spark_sql.SparkSQLTests.test_null_safe_equality",
+      "duration_s": 0.05370758100002604,
+      "outcome": "pass"
+    }
+  ],
+  "timing": {
+    "spark_startup_s": 3.3316399149999825,
+    "warmup_s": 1.8724416729999689,
+    "cleanup_s": 0.16356473100000812,
+    "test_execution_s": 3.1574444520000498,
+    "other_collector_s": 0.00638409599997658
+  },
+  "measurement_protocol": "warmup-range32-sum-v1",
+  "suite": "smoke+xml-52788",
+  "process_wall_s": 8.64647392500001
+}

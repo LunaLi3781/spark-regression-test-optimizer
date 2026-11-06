@@ -203,3 +203,5 @@ in this experiment. There is only one recurring known defect and no claim of
 novel-regression prediction, statistical significance or general superiority.
 Historical collection and full-reference costs are excluded from per-selection
 savings and remain present in the raw experiment records.
+
+Latest fair-comparison results: [shared-history experiment](docs/SHARED_COMPARISON_RESULTS.md).

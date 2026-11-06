@@ -1,0 +1,10 @@
+[
+  "test_spark_sql.SparkSQLTests.test_xml_binary",
+  "test_spark_sql.SparkSQLTests.test_try_cast",
+  "test_spark_sql.SparkSQLTests.test_window",
+  "test_spark_sql.SparkSQLTests.test_json",
+  "test_spark_sql.SparkSQLTests.test_decimal",
+  "test_spark_sql.SparkSQLTests.test_filter",
+  "test_spark_sql.SparkSQLTests.test_aggregate",
+  "test_spark_sql.SparkSQLTests.test_null_safe_equality"
+]
