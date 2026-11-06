@@ -40,3 +40,11 @@ class CostTests(unittest.TestCase):
         self.spark=Mock()
         self.spark.sql.return_value.first.return_value=['<ROW><payload>sample-52788</payload></ROW>']
         oracle(self)
+
+    def test_unset_config_restored_without_null_assignment(self):
+        self.spark=Mock()
+        self.spark.conf.get.return_value=None
+        self.spark.sql.return_value.first.return_value=['<ROW><payload>sample-52788</payload></ROW>']
+        oracle(self)
+        self.spark.conf.unset.assert_called_once_with('spark.sql.binaryOutputStyle')
+        self.spark.conf.set.assert_called_once_with('spark.sql.binaryOutputStyle', 'UTF-8')

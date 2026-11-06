@@ -15,4 +15,7 @@ def test_xml_binary(self):
             raise
         self.assertEqual(ET.fromstring(value).findtext('payload'), 'sample-52788')
     finally:
-        self.spark.conf.set('spark.sql.binaryOutputStyle', previous)
+        if previous is None:
+            self.spark.conf.unset('spark.sql.binaryOutputStyle')
+        else:
+            self.spark.conf.set('spark.sql.binaryOutputStyle', previous)
