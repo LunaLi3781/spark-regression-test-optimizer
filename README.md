@@ -181,3 +181,25 @@ The two budget modes use different budgets and separate histories; their results
 are diagnostics, not a controlled algorithm superiority comparison.
 
 Latest measured lifecycle/defect experiment: [results and limitations](docs/PHASE_RESULTS.md).
+
+## Shared-history strategy comparison
+
+On PySpark 4.0.0, run `python -m scripts.compare_strategies --output-dir results/comparison`
+or manually dispatch the **Shared-history comparison** workflow. This separate
+workflow avoids rerunning the experiment on every push.
+
+All five strategies share two historical runs and the exact same feature digest.
+Budgets are 1 and 2 seconds of estimated test cost, with random seeds 0, 1 and 2;
+other strategies run once per budget. All 14 plans and both execution schedules
+are persisted before target execution. Two rounds execute each plan in a fresh
+process, reversing a seeded shuffled schedule in round two. One full reference
+per round brackets the execution block (before round one, after round two).
+
+The reference is shared, not an adjacent paired timing control for every plan.
+Elapsed-time drift remains possible. All random seeds are reported; two rounds
+are repeated timing observations, not independent defects. The change strategy
+has no change signal (all scores are zero) and is explicitly an ID-order baseline
+in this experiment. There is only one recurring known defect and no claim of
+novel-regression prediction, statistical significance or general superiority.
+Historical collection and full-reference costs are excluded from per-selection
+savings and remain present in the raw experiment records.
