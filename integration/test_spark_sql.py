@@ -1,15 +1,17 @@
 """Original public-API smoke tests, not copied from Apache Spark tests."""
 import unittest
+import os
+from scripts.spark_timing import start_session, stop_session
 from pyspark.sql import SparkSession, functions as F, Window
 
 class SparkSQLTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.spark = SparkSession.builder.master("local[2]").appName("spark-rto-smoke").config("spark.ui.enabled", "false").config("spark.sql.shuffle.partitions", "2").getOrCreate()
+        cls.spark = start_session(SparkSession.builder.master("local[2]").appName("spark-rto-smoke").config("spark.ui.enabled", "false").config("spark.sql.shuffle.partitions", "2"))
 
     @classmethod
     def tearDownClass(cls):
-        cls.spark.stop()
+        stop_session(cls.spark)
 
     def test_filter(self):
         self.assertEqual(self.spark.range(5).filter("id > 2").count(), 2)
@@ -55,3 +57,8 @@ class SparkSQLTests(unittest.TestCase):
         self.assertIsNone(self.scalar('SELECT sum(id) FROM range(0)'))
     def test_try_cast(self):
         self.assertIsNone(self.scalar("SELECT try_cast('not-an-integer' AS INT)"))
+
+# Opt-in keeps the general smoke suite portable to Spark 3.5.
+if os.environ.get('SPARK_RTO_INCLUDE_DEFECT') == '1':
+    from defects.xml_binary import test_xml_binary
+    SparkSQLTests.test_xml_binary = test_xml_binary

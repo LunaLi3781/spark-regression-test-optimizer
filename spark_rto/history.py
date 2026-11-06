@@ -22,7 +22,7 @@ def aggregate(reports, cutoff):
             raise ValueError('history must finish strictly before cutoff')
         if report.get('selected_ids') is not None or report['errors'] or report.get('data_kind') != 'measured':
             raise ValueError('require full measured runs without infrastructure errors')
-        env = tuple(report[k] for k in ('spark_version', 'python', 'platform'))
+        env = tuple(report.get(k) for k in ('spark_version', 'python', 'platform', 'measurement_protocol', 'suite'))
         if environment is not None and env != environment:
             raise ValueError('mixed history environments')
         environment = env
@@ -51,8 +51,8 @@ def evaluate(selected_report, reference, plan):
     """Evaluate against an independent full run, keeping discrepancies explicit."""
     if reference['run_id'] == selected_report['run_id']:
         raise ValueError('reference must be independent')
-    for key in ('spark_version', 'python', 'platform'):
-        if reference[key] != selected_report[key]:
+    for key in ('spark_version', 'python', 'platform', 'measurement_protocol', 'suite'):
+        if reference.get(key) != selected_report.get(key):
             raise ValueError('target environments differ')
     if reference.get('selected_ids') is not None or reference['errors'] or selected_report['errors']:
         raise ValueError('incomplete or errored evaluation')

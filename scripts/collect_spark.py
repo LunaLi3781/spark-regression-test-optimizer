@@ -1,5 +1,7 @@
 """Collect one run; retain full log to diagnose fixture/setup failures."""
 import argparse
+import os
+from scripts.spark_timing import PHASES
 from datetime import datetime, timezone
 import uuid
 import json
@@ -33,8 +35,12 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", required=True)
     parser.add_argument("--selection", help="JSON list of exact discovered test IDs")
+    parser.add_argument("--include-defect", action="store_true")
     args = parser.parse_args()
     import pyspark
+    if args.include_defect and pyspark.__version__ not in ("4.0.0", "4.0.1"):
+        raise ValueError("defect fixture supports only Spark 4.0.0 and 4.0.1")
+    os.environ["SPARK_RTO_INCLUDE_DEFECT"] = "1" if args.include_defect else "0"
     started_at = datetime.now(timezone.utc).isoformat()
     started = time.perf_counter()
     suite = unittest.defaultTestLoader.discover("integration", pattern="test_*.py")
@@ -58,6 +64,10 @@ def main():
                   finished_at=datetime.now(timezone.utc).isoformat(), selected_ids=selected_ids, spark_version=pyspark.__version__, python=platform.python_version(),
                   platform=platform.platform(), total_wall_s=time.perf_counter()-started,
                   successful=result.wasSuccessful(), errors=len(result.errors), failures=len(result.failures), tests=result.records)
+    report['timing'] = dict(PHASES, test_execution_s=sum(r['duration_s'] for r in result.records))
+    report['timing']['other_collector_s'] = max(0, report['total_wall_s'] - sum(report['timing'].values()))
+    report['measurement_protocol'] = 'warmup-range32-sum-v1'
+    report['suite'] = 'smoke+xml-52788' if args.include_defect else 'smoke'
     target = Path(args.output); target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(json.dumps(report, indent=2) + "\n")
     raise SystemExit(0 if result.wasSuccessful() and (result.testsRun or selected_ids == []) else 1)

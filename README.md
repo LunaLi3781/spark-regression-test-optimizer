@@ -149,3 +149,33 @@ cause wall time to exceed it. This runner does not kill tests at the budget limi
 Run-level timestamps identify ordering, not proof of identical hardware/config.
 Keep the same source/configuration while executing a loop. This first loop uses
 one Spark version per invocation; historical-defect fixtures are still separate.
+
+## Phase timing and historical-defect selection
+
+The collector now performs the same small range/sum warm-up for every nonempty
+suite, recording Spark startup, warm-up, test execution, cleanup and residual
+collector time separately. The parent runner also measures complete subprocess
+wall time, including interpreter startup and exit. This changes the measurement
+protocol; do not merge old and new histories or directly attribute before/after
+changes to improved selection.
+
+```bash
+# PySpark 4.0.0 or 4.0.1, Python 3.11 and Java 17
+python -m scripts.run_closed_loop --include-defect --pairs 2 --budget 2 --output-dir results/defect-loop
+python -m scripts.run_closed_loop --include-defect --pairs 2 --budget-mode wall --budget 12 --output-dir results/wall-loop
+```
+
+The wall mode reserves median historical non-test process overhead, then selects
+within the remaining estimate. It is not a deadline guarantee. If overhead exceeds
+the budget, no tests fit; an empty selection runs no Spark session and must not be
+interpreted as useful coverage. Full/selected order alternates between pairs;
+selection is frozen before any target outcomes. `evaluation.json` now contains
+`pairs`, rather than a single evaluation object.
+
+The optional 21st test checks SPARK-52788 against the same correctness oracle on
+both versions: 4.0.0 records a real test failure; 4.0.1 passes. Unexpected errors
+remain errors and abort evaluation. Historical runs on 4.0.0 already contain this
+failure: this experiment measures selection of a **recurring known defect**, not
+prediction of a novel regression. Runs remain within one version per invocation.
+The two budget modes use different budgets and separate histories; their results
+are diagnostics, not a controlled algorithm superiority comparison.

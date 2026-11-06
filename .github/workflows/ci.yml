@@ -68,6 +68,10 @@ jobs:
           java-version: '17'
       - run: python -m pip install pyspark==${{ matrix.spark }}
       - run: python -m scripts.reproduce_52788 --output results/SPARK-52788.json
+      - name: Defect-aware paired selection experiment
+        run: python -m scripts.run_closed_loop --include-defect --pairs 2 --budget 2 --output-dir results/defect-loop
+      - name: Overhead-aware paired selection experiment
+        run: python -m scripts.run_closed_loop --include-defect --pairs 2 --budget-mode wall --budget 12 --output-dir results/wall-loop
       - uses: actions/upload-artifact@v4
         if: always()
         with:
