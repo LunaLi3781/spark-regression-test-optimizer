@@ -24,7 +24,7 @@ from 3.5.3, where built-in XML capability differs.
 
 Smoke tests are small and not representative of all Spark workloads. Hosted-runner
 latency is not a controlled performance comparison. The optimizer has not yet been
-validated against real held-out failures. No upstream PR has been submitted.
+validated against real held-out failures. An upstream draft PR has since been submitted; see the 2026-11-09 update below.
 
 ## Priority order
 
@@ -63,3 +63,22 @@ budgets. 35 unit tests pass; 28 actual target executions completed.
 [Results](SHARED_COMPARISON_RESULTS.md) show budget-dependent tradeoffs, not
 unconditional superiority of the budget heuristic. Next priority is independent
 defect diversity and meaningful pre-target change information.
+
+## Upstream contribution update (2026-11-09)
+
+Submitted [Apache Spark PR #60225](https://github.com/apache/spark/pull/60225)
+to fix literal column-name handling in `assertDataFrameEqual(ignoreColumnOrder=True)`.
+The defect can hide unequal values when a dotted top-level name overlaps a struct
+field path. This is separate from the previously fixed SPARK-52788 fixture.
+
+Two regression methods cover special names and the false-positive case.
+[Contributor-owned source CI](https://github.com/LunaLi3781/spark-regression-test-optimizer/actions/runs/42515177490)
+built the exact patch commit `4075e4b7a914cf67e5f35ee039c37df9c12cfaec` with Hive
+and passed the native `pyspark.sql.tests.test_utils` suite (Python 3.11 / Java 21).
+Lint and formatting checks also passed. Connect parity has not been run.
+
+The PR remains a draft awaiting a JIRA issue. The official Build check reports
+workflow-run detection failure; the separate passing run is not an official CI pass.
+No maintainer review or upstream acceptance has been recorded as of this update.
+This contribution demonstrates a reproducible correctness fix, not optimizer
+superiority or external adoption.
