@@ -1,0 +1,128 @@
+{
+  "source_version": "3.5.3",
+  "target_version": "4.0.1",
+  "profile": "ansi-off",
+  "cases": [
+    {
+      "id": "integer",
+      "changes": [],
+      "reference": null,
+      "interpretation": "no_observed_difference"
+    },
+    {
+      "id": "decimal",
+      "changes": [],
+      "reference": null,
+      "interpretation": "no_observed_difference"
+    },
+    {
+      "id": "null",
+      "changes": [],
+      "reference": null,
+      "interpretation": "no_observed_difference"
+    },
+    {
+      "id": "duplicates",
+      "changes": [],
+      "reference": null,
+      "interpretation": "no_observed_difference"
+    },
+    {
+      "id": "aggregate",
+      "changes": [],
+      "reference": null,
+      "interpretation": "no_observed_difference"
+    },
+    {
+      "id": "array",
+      "changes": [],
+      "reference": null,
+      "interpretation": "no_observed_difference"
+    },
+    {
+      "id": "map",
+      "changes": [],
+      "reference": null,
+      "interpretation": "no_observed_difference"
+    },
+    {
+      "id": "struct",
+      "changes": [],
+      "reference": null,
+      "interpretation": "no_observed_difference"
+    },
+    {
+      "id": "date",
+      "changes": [],
+      "reference": null,
+      "interpretation": "no_observed_difference"
+    },
+    {
+      "id": "timestamp",
+      "changes": [],
+      "reference": null,
+      "interpretation": "no_observed_difference"
+    },
+    {
+      "id": "binary",
+      "changes": [],
+      "reference": null,
+      "interpretation": "no_observed_difference"
+    },
+    {
+      "id": "unicode",
+      "changes": [],
+      "reference": null,
+      "interpretation": "no_observed_difference"
+    },
+    {
+      "id": "nan",
+      "changes": [],
+      "reference": null,
+      "interpretation": "no_observed_difference"
+    },
+    {
+      "id": "window",
+      "changes": [],
+      "reference": null,
+      "interpretation": "no_observed_difference"
+    },
+    {
+      "id": "join",
+      "changes": [],
+      "reference": null,
+      "interpretation": "no_observed_difference"
+    },
+    {
+      "id": "quoted_name",
+      "changes": [],
+      "reference": null,
+      "interpretation": "no_observed_difference"
+    },
+    {
+      "id": "invalid_cast",
+      "changes": [],
+      "reference": "https://spark.apache.org/docs/4.0.1/sql-migration-guide.html",
+      "interpretation": "no_observed_difference"
+    },
+    {
+      "id": "divide_zero",
+      "changes": [],
+      "reference": "https://spark.apache.org/docs/4.0.1/sql-migration-guide.html",
+      "interpretation": "no_observed_difference"
+    },
+    {
+      "id": "overflow",
+      "changes": [],
+      "reference": "https://spark.apache.org/docs/4.0.1/sql-migration-guide.html",
+      "interpretation": "no_observed_difference"
+    },
+    {
+      "id": "missing_column",
+      "changes": [],
+      "reference": null,
+      "interpretation": "no_observed_difference"
+    }
+  ],
+  "changed": 0
+}

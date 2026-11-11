@@ -52,3 +52,8 @@ Next: expand public historical defect coverage, add readable HTML/Markdown repor
 validate with an independent user's reproducible workload, and minimize any
 unexplained differences before proposing upstream issues. No adoption or
 algorithm-superiority claim is made.
+
+## First measured results
+
+See [80 local query observations](COMPATIBILITY_RESULTS.md): three default-profile
+differences, zero differences after disabling ANSI on both versions.

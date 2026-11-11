@@ -1,0 +1,488 @@
+{
+  "format": 1,
+  "spark_version": "4.0.1",
+  "python": "3.9.6",
+  "java": "17.0.21.0.3",
+  "profile": "defaults",
+  "config": {
+    "spark.sql.ansi.enabled": "true",
+    "spark.sql.session.timeZone": "UTC"
+  },
+  "row_limit": 1000,
+  "case_fingerprint": "afe9c27eff97c6fb23389de5006bcacd8e4da7088a0906f1468b8a5999ba421a",
+  "cases": [
+    {
+      "id": "integer",
+      "sql": "SELECT 7 + 5 AS value",
+      "reference": null,
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "integer",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          12
+        ]
+      ]
+    },
+    {
+      "id": "decimal",
+      "sql": "SELECT CAST(1.25 AS DECIMAL(8,2)) AS value",
+      "reference": null,
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "decimal(8,2)",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          {
+            "decimal": "1.25"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "null",
+      "sql": "SELECT CAST(NULL AS INT) AS value",
+      "reference": null,
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "integer",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          null
+        ]
+      ]
+    },
+    {
+      "id": "duplicates",
+      "sql": "SELECT id % 2 AS value FROM range(6)",
+      "reference": null,
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "id": "aggregate",
+      "sql": "SELECT sum(id) AS value FROM range(10)",
+      "reference": null,
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          45
+        ]
+      ]
+    },
+    {
+      "id": "array",
+      "sql": "SELECT array(1, NULL, 3) AS value",
+      "reference": null,
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": {
+              "type": "array",
+              "elementType": "integer",
+              "containsNull": true
+            },
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          [
+            1,
+            null,
+            3
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "map",
+      "sql": "SELECT map('b', 2, 'a', 1) AS value",
+      "reference": null,
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": {
+              "type": "map",
+              "keyType": "string",
+              "valueType": "integer",
+              "valueContainsNull": false
+            },
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          {
+            "map": [
+              [
+                "a",
+                1
+              ],
+              [
+                "b",
+                2
+              ]
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "id": "struct",
+      "sql": "SELECT named_struct('x', 1, 'y', 'hello') AS value",
+      "reference": null,
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": {
+              "type": "struct",
+              "fields": [
+                {
+                  "name": "x",
+                  "type": "integer",
+                  "nullable": false,
+                  "metadata": {}
+                },
+                {
+                  "name": "y",
+                  "type": "string",
+                  "nullable": false,
+                  "metadata": {}
+                }
+              ]
+            },
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          [
+            1,
+            "hello"
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "date",
+      "sql": "SELECT DATE '2024-02-29' AS value",
+      "reference": null,
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "date",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          {
+            "date": "2024-02-29"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "timestamp",
+      "sql": "SELECT TIMESTAMP '2024-01-02 03:04:05' AS value",
+      "reference": null,
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "timestamp",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          {
+            "datetime": "2024-01-01T19:04:05"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "binary",
+      "sql": "SELECT unhex('00FF') AS value",
+      "reference": null,
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "binary",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          {
+            "binary": "00ff"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "unicode",
+      "sql": "SELECT concat('Spark', '测试') AS value",
+      "reference": null,
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "string",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "Spark测试"
+        ]
+      ]
+    },
+    {
+      "id": "nan",
+      "sql": "SELECT CAST('NaN' AS DOUBLE) AS value",
+      "reference": null,
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          {
+            "float": "nan"
+          }
+        ]
+      ]
+    },
+    {
+      "id": "window",
+      "sql": "SELECT id, row_number() OVER (ORDER BY id) AS n FROM range(3)",
+      "reference": null,
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "id",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "n",
+            "type": "integer",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "id": "join",
+      "sql": "SELECT a.id FROM range(3) a JOIN range(2) b ON a.id=b.id",
+      "reference": null,
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "id",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "id": "quoted_name",
+      "sql": "SELECT 2 AS `a.b`, 3 AS `a``b`",
+      "reference": null,
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "a.b",
+            "type": "integer",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "a`b",
+            "type": "integer",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "id": "invalid_cast",
+      "sql": "SELECT CAST('not-an-integer' AS INT) AS value",
+      "reference": "https://spark.apache.org/docs/4.0.1/sql-migration-guide.html",
+      "status": "error",
+      "error": "CAST_INVALID_INPUT"
+    },
+    {
+      "id": "divide_zero",
+      "sql": "SELECT 1 / 0 AS value",
+      "reference": "https://spark.apache.org/docs/4.0.1/sql-migration-guide.html",
+      "status": "error",
+      "error": "DIVIDE_BY_ZERO"
+    },
+    {
+      "id": "overflow",
+      "sql": "SELECT CAST(2147483647 AS INT) + 1 AS value",
+      "reference": "https://spark.apache.org/docs/4.0.1/sql-migration-guide.html",
+      "status": "error",
+      "error": "ARITHMETIC_OVERFLOW"
+    },
+    {
+      "id": "missing_column",
+      "sql": "SELECT missing_column FROM range(1)",
+      "reference": null,
+      "status": "error",
+      "error": "UNRESOLVED_COLUMN.WITH_SUGGESTION"
+    }
+  ]
+}
