@@ -82,3 +82,16 @@ workflow-run detection failure; the separate passing run is not an official CI p
 No maintainer review or upstream acceptance has been recorded as of this update.
 This contribution demonstrates a reproducible correctness fix, not optimizer
 superiority or external adoption.
+
+## Formal upstream submission (2026-11-10)
+
+Created [SPARK-61436](https://issues.apache.org/jira/browse/SPARK-61436)
+(Bug, PySpark, affected version 5.0.0, priority Major) and linked it to
+[PR #60225](https://github.com/apache/spark/pull/60225). The PR is now open
+and ready for review, no longer a draft. The passing contributor-owned source
+validation still applies to the unchanged patch commit.
+
+Official Build remains ACTION_REQUIRED: the upstream checker cannot detect
+a fork workflow run, and the fork workflow API currently lists no workflows.
+The repository owner needs to initialize the fork's Actions workflows before
+that CI path can be completed. No upstream acceptance or review is claimed.
