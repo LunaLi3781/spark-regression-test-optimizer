@@ -205,3 +205,10 @@ Historical collection and full-reference costs are excluded from per-selection
 savings and remain present in the raw experiment records.
 
 Latest fair-comparison results: [shared-history experiment](docs/SHARED_COMPARISON_RESULTS.md).
+
+## Spark upgrade compatibility diagnostics
+
+The new `spark-compat` CLI compares the same 20 SQL probes across isolated Spark
+versions, including results, schema and structured errors. It reports differences
+for review rather than labeling every change a bug. See
+[usage, limitations and reproducible CI](docs/SPARK_COMPATIBILITY.md).

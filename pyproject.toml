@@ -12,7 +12,8 @@ license = {file = "LICENSE"}
 dependencies = []
 
 [project.scripts]
+spark-compat = "spark_compat.__main__:main"
 spark-rto = "spark_rto.__main__:main"
 
 [tool.setuptools.packages.find]
-include = ["spark_rto*"]
+include = ["spark_rto*", "spark_compat*"]
