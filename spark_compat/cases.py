@@ -25,3 +25,15 @@ QUERIES = [
 CASES = [{"id": key, "sql": sql, "reference": GUIDE if key in
           {"invalid_cast", "divide_zero", "overflow"} else None}
          for key, sql in QUERIES]
+
+HISTORICAL = [
+    {"id": "xml_string_control", "sql":
+     "SELECT to_xml(named_struct('payload', 'compat-sample')) AS value",
+     "reference": "https://issues.apache.org/jira/browse/SPARK-52788",
+     "oracle": "xml_payload"},
+    {"id": "xml_binary_52788", "sql":
+     "SELECT to_xml(named_struct('payload', CAST('compat-sample' AS BINARY))) AS value",
+     "reference": "https://github.com/apache/spark/pull/51610",
+     "oracle": "xml_payload"},
+]
+SUITES = {"smoke": CASES, "historical": HISTORICAL}

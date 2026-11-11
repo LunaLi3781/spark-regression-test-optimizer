@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        spark: ['3.5.3', '4.0.1']
+        spark: ['3.5.3', '4.0.0', '4.0.1']
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -25,6 +25,16 @@ jobs:
           spark-compat collect --profile ansi-off --output results/${{ matrix.spark }}-ansi-off.json
         env:
           SPARK_LOCAL_IP: 127.0.0.1
+      - name: Collect historical defect probes
+        if: matrix.spark != '3.5.3'
+        run: spark-compat collect --suite historical --output results/${{ matrix.spark }}-historical.json
+        env:
+          SPARK_LOCAL_IP: 127.0.0.1
+      - uses: actions/upload-artifact@v4
+        if: matrix.spark != '3.5.3'
+        with:
+          name: compat-historical-${{ matrix.spark }}
+          path: results/*-historical.json
       - uses: actions/upload-artifact@v4
         with:
           name: compat-${{ matrix.spark }}
@@ -47,8 +57,25 @@ jobs:
           merge-multiple: true
           path: results
       - run: |
-          python -m spark_compat compare results/3.5.3-defaults.json results/4.0.1-defaults.json --output results/diff-defaults.json
-          python -m spark_compat compare results/3.5.3-ansi-off.json results/4.0.1-ansi-off.json --output results/diff-ansi-off.json
+          python -m spark_compat compare results/3.5.3-defaults.json results/4.0.1-defaults.json --output results/diff-defaults.json --markdown results/defaults.md
+          python -m spark_compat compare results/3.5.3-ansi-off.json results/4.0.1-ansi-off.json --output results/diff-ansi-off.json --markdown results/ansi-off.md
+          python -m spark_compat compare results/4.0.0-historical.json results/4.0.1-historical.json --output results/diff-historical.json --markdown results/historical.md
+      - name: Verify historical defect expectations independently of differences
+        run: |
+          python - <<'PYTEST'
+          import json
+          for version in ['4.0.0', '4.0.1']:
+              data = json.load(open('results/' + version + '-historical.json'))
+              assert data['spark_version'] == version
+              cases = {c['id']: c for c in data['cases']}
+              assert cases['xml_string_control']['oracle_result'] == 'pass'
+              binary = cases['xml_binary_52788']
+              if version == '4.0.0':
+                  assert binary['error'] == 'SPARK-52788_BINARY_XML_CONVERSION'
+                  assert binary['oracle_result'] == 'fail'
+              else:
+                  assert binary['status'] == 'ok' and binary['oracle_result'] == 'pass'
+          PYTEST
       - uses: actions/upload-artifact@v4
         with:
           name: compatibility-report

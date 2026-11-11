@@ -1,0 +1,30 @@
+{
+  "source_version": "4.0.0",
+  "target_version": "4.0.1",
+  "profile": "defaults",
+  "cases": [
+    {
+      "id": "xml_string_control",
+      "changes": [],
+      "reference": "https://issues.apache.org/jira/browse/SPARK-52788",
+      "source_status": "ok",
+      "target_status": "ok",
+      "source_oracle": "pass",
+      "target_oracle": "pass",
+      "interpretation": "no_observed_difference"
+    },
+    {
+      "id": "xml_binary_52788",
+      "changes": [
+        "outcome"
+      ],
+      "reference": "https://github.com/apache/spark/pull/51610",
+      "source_status": "error",
+      "target_status": "ok",
+      "source_oracle": "fail",
+      "target_oracle": "pass",
+      "interpretation": "needs_review"
+    }
+  ],
+  "changed": 1
+}

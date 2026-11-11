@@ -24,8 +24,19 @@ not mean every query succeeds.
 
 [Raw evidence](validation/compatibility/) includes all four runs and both comparisons.
 [Cloud reproduction](https://github.com/LunaLi3781/spark-regression-test-optimizer/actions/runs/43097643024)
-was queued when this local report was recorded; no cloud pass is claimed.
+did not start any jobs and ended with startup_failure. A retry was requested;
+no cloud pass is claimed.
 
 All 41 unit tests passed. Queries and implementation are original and AI-assisted.
 Future comparisons across different hosts must control their local timezone as well
 as Spark timezone: collected timestamp values use Python datetime representation.
+
+
+## Historical defect validation
+
+Two new local JVM runs (4.0.0 and 4.0.1, Python 3.9 / Java 17) each executed a string
+control and binary XML probe. Both controls passed. The binary probe reproduced
+SPARK-52788 on 4.0.0 and returned the correct XML on 4.0.1.
+[Generated report and raw evidence](validation/compatibility-historical/historical.md).
+This demonstrates detection of one known repair, not broad defect recall or a
+newly discovered vulnerability. 44 unit tests pass after report/integrity updates.

@@ -1,0 +1,54 @@
+{
+  "format": 2,
+  "suite": "historical",
+  "host_timezone": "UTC",
+  "expected_case_ids": [
+    "xml_string_control",
+    "xml_binary_52788"
+  ],
+  "spark_version": "4.0.0",
+  "python": "3.9.6",
+  "java": "17.0.21.0.3",
+  "profile": "defaults",
+  "config": {
+    "spark.sql.ansi.enabled": "true",
+    "spark.sql.session.timeZone": "UTC"
+  },
+  "row_limit": 1000,
+  "case_fingerprint": "c98e47a2e23a71bd29b244b9e56bab75f57b72f16c3bd35615070583aed43303",
+  "cases": [
+    {
+      "id": "xml_string_control",
+      "sql": "SELECT to_xml(named_struct('payload', 'compat-sample')) AS value",
+      "reference": "https://issues.apache.org/jira/browse/SPARK-52788",
+      "oracle": "xml_payload",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "<ROW>\n    <payload>compat-sample</payload>\n</ROW>"
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "xml_binary_52788",
+      "sql": "SELECT to_xml(named_struct('payload', CAST('compat-sample' AS BINARY))) AS value",
+      "reference": "https://github.com/apache/spark/pull/51610",
+      "oracle": "xml_payload",
+      "status": "error",
+      "error": "SPARK-52788_BINARY_XML_CONVERSION",
+      "oracle_result": "fail"
+    }
+  ]
+}

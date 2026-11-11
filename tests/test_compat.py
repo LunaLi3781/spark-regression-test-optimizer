@@ -49,3 +49,35 @@ class CompatibilityTests(unittest.TestCase):
         left = self.run_data()
         left["cases"][0] = {"id": "x", "status": "inconclusive"}
         self.assertEqual(compare(left, left)["cases"][0]["changes"], ["inconclusive"])
+
+    def test_reject_invalid_or_empty_observations(self):
+        for cases in ([], [{"id": "x", "status": "unknown"}]):
+            run = self.run_data()
+            run['cases'] = cases
+            with self.assertRaises(ValueError):
+                compare(run, run)
+
+    def test_v2_rejects_jointly_missing_cases_and_timezone_mismatch(self):
+        left = self.run_data()
+        left.update(format=2, suite='smoke', host_timezone='UTC',
+                    expected_case_ids=['x', 'missing'], config={
+                        'spark.sql.session.timeZone': 'UTC', 'spark.sql.ansi.enabled': 'false'})
+        with self.assertRaises(ValueError):
+            compare(left, left)
+        left['expected_case_ids'] = ['x']
+        right = copy.deepcopy(left)
+        right['host_timezone'] = 'America/Los_Angeles'
+        with self.assertRaises(ValueError):
+            compare(left, right)
+        left['profile'] = 'ansi-off'
+        left['config']['spark.sql.ansi.enabled'] = 'true'
+        with self.assertRaises(ValueError):
+            compare(left, left)
+
+    def test_report_exposes_unchanged_errors(self):
+        from spark_compat.core import markdown
+        left = self.run_data()
+        left['cases'] = [{'id': 'x', 'status': 'error', 'error': 'KNOWN', 'oracle_result': 'fail'}]
+        report = markdown(compare(left, left))
+        self.assertIn('error → error', report)
+        self.assertIn('fail → fail', report)
