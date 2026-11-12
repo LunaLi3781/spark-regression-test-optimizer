@@ -40,3 +40,18 @@ SPARK-52788 on 4.0.0 and returned the correct XML on 4.0.1.
 [Generated report and raw evidence](validation/compatibility-historical/historical.md).
 This demonstrates detection of one known repair, not broad defect recall or a
 newly discovered vulnerability. 44 unit tests pass after report/integrity updates.
+
+
+## Cloud confirmation and corpus expansion (2026-11-11)
+
+[Run 43098909667](https://github.com/LunaLi3781/spark-regression-test-optimizer/actions/runs/43098909667)
+completed successfully: Spark 3.5.3, 4.0.0 and 4.0.1 collectors plus the comparison
+job all passed. This run validates the previous two-probe XML historical suite,
+not the later six-probe expansion. Its default-profile comparison found 3
+changes; ANSI-off found 0; XML historical comparison found 1.
+
+The expanded six-probe suite has now passed local known-version validation on
+4.0.0 and 4.0.1 (12 observations). All three defective probes fail their correctness
+checks on 4.0.0 and pass on 4.0.1. All three controls pass on both versions.
+[Expanded report and raw artifacts](validation/compatibility-three-defects/report.md).
+The original four-run smoke evidence and earlier XML reports remain unchanged.

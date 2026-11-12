@@ -29,3 +29,17 @@ was copied into this MIT repository. Upstream fix authors retain credit.
 The issue affects 4.0.0 and is fixed in 4.0.1. This is a historical defect
 reproduction, not a claim that we discovered or fixed it, nor proof of regression
 from 3.5.3 (built-in XML support differs across versions).
+
+## Compatibility corpus expansion (2026-11-11)
+
+Public PR descriptions and the 4.0.1 release notes informed original synthetic
+queries. No upstream source or test file was copied into these fixtures.
+- SPARK-52153: https://github.com/apache/spark/pull/50901
+- SPARK-53094: https://github.com/apache/spark/pull/51820
+- Release inclusion: https://spark.apache.org/releases/spark-release-4-0-1.html
+
+The JSON case uses a new `reading` field with negative infinity. The CUBE case
+uses three synthetic sales values (4, 6, 5) and one region dimension, with a
+hand-computed expected total of 15 and a UNION-based control. Implementations,
+checks and data are AI-assisted and original. These reproduce known defects;
+they are not claims of discovering or repairing the upstream issues.

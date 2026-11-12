@@ -3,7 +3,8 @@
 `spark-compat` is a new independent tool in this repository. It compares observed
 SQL behavior across isolated Spark processes, complementing test selection.
 The smoke corpus contains 20 original synthetic, read-only SQL queries.
-The optional historical corpus contains two XML probes for SPARK-52788.
+The optional historical corpus contains six probes: three public defects and
+three independent control cases (XML, variant JSON, and CUBE/HAVING).
 No employer code or data is used. The existing MIT license applies.
 
 ## Run
@@ -85,3 +86,27 @@ requires a Unix host with `time.tzset`. Existing format-1 artifacts can still be
 compared to each other, but retain their historical metadata limitations; formats
 1 and 2 cannot be mixed. Markdown reports expose unchanged errors as errors,
 not successful queries. Floating point results remain exact comparisons.
+
+## Three-defect corpus
+
+[Expanded measured report](validation/compatibility-three-defects/report.md) includes:
+
+| Public issue | Defect | Independent correctness check |
+|---|---|---|
+| SPARK-52788 | Binary value fails XML serialization | Parse XML and verify payload |
+| SPARK-52153 | Variant output contains unquoted infinity | Strict JSON parser and expected string value |
+| SPARK-53094 | CUBE/HAVING loses a grand-total row | Hand-computed multiset of three totals |
+
+All three defects reproduce on 4.0.0 and their probes pass on 4.0.1. Their three
+controls pass on both versions. JSON and CUBE queries succeed even on the affected
+version: an exit-code-only test would miss these two errors. The correctness
+checks never infer correctness from version numbers; `verify_historical` separately
+checks measured results against the known-version expectations.
+
+49 unit tests cover the comparator, oracle negative examples, incomplete observations,
+wrong results and unexpected errors. Local integration executes all six probes on
+both versions. A candidate for SPARK-53155 was investigated using an empty global
+aggregate but showed no difference with that query; it is not included or counted.
+
+This is a selected three-defect validation set, not a held-out benchmark or evidence
+of general recall. Credit for the original fixes belongs to Apache contributors.

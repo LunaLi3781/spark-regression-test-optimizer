@@ -36,4 +36,28 @@ HISTORICAL = [
      "reference": "https://github.com/apache/spark/pull/51610",
      "oracle": "xml_payload"},
 ]
+# Hand-computed totals for three synthetic input rows: 4 + 6 + 5 = 15.
+SALES = "VALUES ('north',4),('north',6),('south',5) AS sales(region,amount)"
+TOTALS = [["north", 10], ["south", 5], [None, 15]]
+HISTORICAL.extend([
+    {"id": "json_float_control", "sql":
+     "SELECT to_json(named_struct('reading', CAST('-Infinity' AS DOUBLE))) AS value",
+     "reference": "https://github.com/apache/spark/pull/50901",
+     "oracle": "strict_json", "expected_json": {"reading": "-Infinity"}},
+    {"id": "json_variant_52153", "sql":
+     "SELECT to_json(to_variant_object("
+     "named_struct('reading', CAST('-Infinity' AS DOUBLE)))) AS value",
+     "reference": "https://github.com/apache/spark/pull/50901",
+     "oracle": "strict_json", "expected_json": {"reading": "-Infinity"}},
+    {"id": "cube_union_control", "sql":
+     "SELECT region, SUM(amount) AS total FROM " + SALES + " GROUP BY region "
+     "UNION ALL SELECT CAST(NULL AS STRING), SUM(amount) FROM " + SALES,
+     "reference": "https://github.com/apache/spark/pull/51820",
+     "oracle": "rows", "expected_rows": TOTALS},
+    {"id": "cube_having_53094", "sql":
+     "SELECT region, SUM(amount) AS total FROM " + SALES +
+     " GROUP BY CUBE(region) HAVING count(region)>0",
+     "reference": "https://github.com/apache/spark/pull/51820",
+     "oracle": "rows", "expected_rows": TOTALS},
+])
 SUITES = {"smoke": CASES, "historical": HISTORICAL}

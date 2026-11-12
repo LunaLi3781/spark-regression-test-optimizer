@@ -1,0 +1,234 @@
+{
+  "format": 2,
+  "suite": "historical",
+  "host_timezone": "UTC",
+  "expected_case_ids": [
+    "xml_string_control",
+    "xml_binary_52788",
+    "json_float_control",
+    "json_variant_52153",
+    "cube_union_control",
+    "cube_having_53094"
+  ],
+  "spark_version": "4.0.1",
+  "python": "3.9.6",
+  "java": "17.0.21.0.3",
+  "profile": "defaults",
+  "config": {
+    "spark.sql.ansi.enabled": "true",
+    "spark.sql.session.timeZone": "UTC",
+    "spark.sql.binaryOutputStyle": "UTF-8"
+  },
+  "row_limit": 1000,
+  "case_fingerprint": "0a75689abc4d78d1c64a60a4d3a7eebb66c00293bce32e2e27f63cc40bce70a7",
+  "cases": [
+    {
+      "id": "xml_string_control",
+      "sql": "SELECT to_xml(named_struct('payload', 'compat-sample')) AS value",
+      "reference": "https://issues.apache.org/jira/browse/SPARK-52788",
+      "oracle": "xml_payload",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "<ROW>\n    <payload>compat-sample</payload>\n</ROW>"
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "xml_binary_52788",
+      "sql": "SELECT to_xml(named_struct('payload', CAST('compat-sample' AS BINARY))) AS value",
+      "reference": "https://github.com/apache/spark/pull/51610",
+      "oracle": "xml_payload",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "<ROW>\n    <payload>compat-sample</payload>\n</ROW>"
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "json_float_control",
+      "sql": "SELECT to_json(named_struct('reading', CAST('-Infinity' AS DOUBLE))) AS value",
+      "reference": "https://github.com/apache/spark/pull/50901",
+      "oracle": "strict_json",
+      "expected_json": {
+        "reading": "-Infinity"
+      },
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "{\"reading\":\"-Infinity\"}"
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "json_variant_52153",
+      "sql": "SELECT to_json(to_variant_object(named_struct('reading', CAST('-Infinity' AS DOUBLE)))) AS value",
+      "reference": "https://github.com/apache/spark/pull/50901",
+      "oracle": "strict_json",
+      "expected_json": {
+        "reading": "-Infinity"
+      },
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "{\"reading\":\"-Infinity\"}"
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "cube_union_control",
+      "sql": "SELECT region, SUM(amount) AS total FROM VALUES ('north',4),('north',6),('south',5) AS sales(region,amount) GROUP BY region UNION ALL SELECT CAST(NULL AS STRING), SUM(amount) FROM VALUES ('north',4),('north',6),('south',5) AS sales(region,amount)",
+      "reference": "https://github.com/apache/spark/pull/51820",
+      "oracle": "rows",
+      "expected_rows": [
+        [
+          "north",
+          10
+        ],
+        [
+          "south",
+          5
+        ],
+        [
+          null,
+          15
+        ]
+      ],
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "region",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "total",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "north",
+          10
+        ],
+        [
+          "south",
+          5
+        ],
+        [
+          null,
+          15
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "cube_having_53094",
+      "sql": "SELECT region, SUM(amount) AS total FROM VALUES ('north',4),('north',6),('south',5) AS sales(region,amount) GROUP BY CUBE(region) HAVING count(region)>0",
+      "reference": "https://github.com/apache/spark/pull/51820",
+      "oracle": "rows",
+      "expected_rows": [
+        [
+          "north",
+          10
+        ],
+        [
+          "south",
+          5
+        ],
+        [
+          null,
+          15
+        ]
+      ],
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "region",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "total",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "north",
+          10
+        ],
+        [
+          "south",
+          5
+        ],
+        [
+          null,
+          15
+        ]
+      ],
+      "oracle_result": "pass"
+    }
+  ]
+}

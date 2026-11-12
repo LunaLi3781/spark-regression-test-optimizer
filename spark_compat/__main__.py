@@ -4,10 +4,10 @@ import json
 import platform
 import os
 import time
-import xml.etree.ElementTree as ET
 from pathlib import Path
 
 from .cases import SUITES
+from .oracles import check
 from .core import canonical, compare, dumps, fingerprint, markdown
 
 
@@ -31,6 +31,8 @@ def collect(profile, limit, suite="smoke"):
             spark.conf.set("spark.sql.binaryOutputStyle", "UTF-8")
         config = {k: spark.conf.get(k) for k in
                   ("spark.sql.ansi.enabled", "spark.sql.session.timeZone")}
+        if suite == "historical":
+            config["spark.sql.binaryOutputStyle"] = spark.conf.get("spark.sql.binaryOutputStyle")
         for case in cases:
             record = dict(case)
             try:
@@ -41,13 +43,8 @@ def collect(profile, limit, suite="smoke"):
                 else:
                     record.update(status="ok", schema=frame.schema.jsonValue(),
                                   rows=sorted([canonical(row) for row in rows], key=dumps))
-                    if case.get("oracle") == "xml_payload":
-                        try:
-                            correct = (len(rows) == 1 and
-                                       ET.fromstring(rows[0][0]).findtext("payload") == "compat-sample")
-                        except (ET.ParseError, TypeError):
-                            correct = False
-                        record["oracle_result"] = "pass" if correct else "fail"
+                    if case.get("oracle"):
+                        record["oracle_result"] = "pass" if check(case, rows) else "fail"
             except Exception as exc:
                 get_class = getattr(exc, "getErrorClass", lambda: None)
                 condition = get_class()
