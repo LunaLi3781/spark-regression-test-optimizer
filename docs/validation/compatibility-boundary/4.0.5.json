@@ -1,0 +1,1487 @@
+{
+  "format": 2,
+  "suite": "boundary",
+  "host_timezone": "UTC",
+  "expected_case_ids": [
+    "cube_empty_star_-1",
+    "cube_empty_star_0",
+    "cube_empty_column_-1",
+    "cube_empty_column_0",
+    "cube_null_only_star_-1",
+    "cube_null_only_star_0",
+    "cube_null_only_column_-1",
+    "cube_null_only_column_0",
+    "cube_mixed_star_-1",
+    "cube_mixed_star_0",
+    "cube_mixed_column_-1",
+    "cube_mixed_column_0",
+    "cube_duplicates_star_-1",
+    "cube_duplicates_star_0",
+    "cube_duplicates_column_-1",
+    "cube_duplicates_column_0",
+    "cube_cancellation_star_-1",
+    "cube_cancellation_star_0",
+    "cube_cancellation_column_-1",
+    "cube_cancellation_column_0",
+    "json_object_nan",
+    "json_array_nan",
+    "json_object_positive_inf",
+    "json_array_positive_inf",
+    "json_object_negative_inf",
+    "json_array_negative_inf",
+    "json_object_fraction",
+    "json_array_fraction",
+    "json_object_negative_zero",
+    "json_array_negative_zero",
+    "json_object_null",
+    "json_array_null"
+  ],
+  "spark_version": "4.0.5",
+  "python": "3.9.6",
+  "java": "17.0.21.0.3",
+  "profile": "defaults",
+  "config": {
+    "spark.sql.ansi.enabled": "true",
+    "spark.sql.session.timeZone": "UTC"
+  },
+  "row_limit": 1000,
+  "case_fingerprint": "ed90b400791df8863e6a9a9aaf8a2e60b5c2d6d8ea2791cec563b8f79af76d71",
+  "cases": [
+    {
+      "id": "cube_empty_star_-1",
+      "sql": "SELECT region, SUM(amount) AS total, grouping(region) AS gid FROM (SELECT CAST(NULL AS STRING) AS region, CAST(NULL AS INT) AS amount WHERE false) src GROUP BY CUBE(region) HAVING count(*)>-1",
+      "oracle": "rows",
+      "expected_rows": [
+        [
+          null,
+          null,
+          1
+        ]
+      ],
+      "reference": "https://github.com/apache/spark/pull/51820",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "region",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "total",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "gid",
+            "type": "byte",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [],
+      "oracle_result": "fail"
+    },
+    {
+      "id": "cube_empty_star_0",
+      "sql": "SELECT region, SUM(amount) AS total, grouping(region) AS gid FROM (SELECT CAST(NULL AS STRING) AS region, CAST(NULL AS INT) AS amount WHERE false) src GROUP BY CUBE(region) HAVING count(*)>0",
+      "oracle": "rows",
+      "expected_rows": [],
+      "reference": "https://github.com/apache/spark/pull/51820",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "region",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "total",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "gid",
+            "type": "byte",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "cube_empty_column_-1",
+      "sql": "SELECT region, SUM(amount) AS total, grouping(region) AS gid FROM (SELECT CAST(NULL AS STRING) AS region, CAST(NULL AS INT) AS amount WHERE false) src GROUP BY CUBE(region) HAVING count(region)>-1",
+      "oracle": "rows",
+      "expected_rows": [
+        [
+          null,
+          null,
+          1
+        ]
+      ],
+      "reference": "https://github.com/apache/spark/pull/51820",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "region",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "total",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "gid",
+            "type": "byte",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [],
+      "oracle_result": "fail"
+    },
+    {
+      "id": "cube_empty_column_0",
+      "sql": "SELECT region, SUM(amount) AS total, grouping(region) AS gid FROM (SELECT CAST(NULL AS STRING) AS region, CAST(NULL AS INT) AS amount WHERE false) src GROUP BY CUBE(region) HAVING count(region)>0",
+      "oracle": "rows",
+      "expected_rows": [],
+      "reference": "https://github.com/apache/spark/pull/51820",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "region",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "total",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "gid",
+            "type": "byte",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "cube_null_only_star_-1",
+      "sql": "SELECT region, SUM(amount) AS total, grouping(region) AS gid FROM (SELECT CAST(r AS STRING) AS region, CAST(a AS INT) AS amount FROM VALUES (NULL,NULL),(NULL,2) AS input(r,a)) src GROUP BY CUBE(region) HAVING count(*)>-1",
+      "oracle": "rows",
+      "expected_rows": [
+        [
+          null,
+          2,
+          0
+        ],
+        [
+          null,
+          2,
+          1
+        ]
+      ],
+      "reference": "https://github.com/apache/spark/pull/51820",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "region",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "total",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "gid",
+            "type": "byte",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          null,
+          2,
+          0
+        ],
+        [
+          null,
+          2,
+          1
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "cube_null_only_star_0",
+      "sql": "SELECT region, SUM(amount) AS total, grouping(region) AS gid FROM (SELECT CAST(r AS STRING) AS region, CAST(a AS INT) AS amount FROM VALUES (NULL,NULL),(NULL,2) AS input(r,a)) src GROUP BY CUBE(region) HAVING count(*)>0",
+      "oracle": "rows",
+      "expected_rows": [
+        [
+          null,
+          2,
+          0
+        ],
+        [
+          null,
+          2,
+          1
+        ]
+      ],
+      "reference": "https://github.com/apache/spark/pull/51820",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "region",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "total",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "gid",
+            "type": "byte",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          null,
+          2,
+          0
+        ],
+        [
+          null,
+          2,
+          1
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "cube_null_only_column_-1",
+      "sql": "SELECT region, SUM(amount) AS total, grouping(region) AS gid FROM (SELECT CAST(r AS STRING) AS region, CAST(a AS INT) AS amount FROM VALUES (NULL,NULL),(NULL,2) AS input(r,a)) src GROUP BY CUBE(region) HAVING count(region)>-1",
+      "oracle": "rows",
+      "expected_rows": [
+        [
+          null,
+          2,
+          0
+        ],
+        [
+          null,
+          2,
+          1
+        ]
+      ],
+      "reference": "https://github.com/apache/spark/pull/51820",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "region",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "total",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "gid",
+            "type": "byte",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          null,
+          2,
+          0
+        ],
+        [
+          null,
+          2,
+          1
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "cube_null_only_column_0",
+      "sql": "SELECT region, SUM(amount) AS total, grouping(region) AS gid FROM (SELECT CAST(r AS STRING) AS region, CAST(a AS INT) AS amount FROM VALUES (NULL,NULL),(NULL,2) AS input(r,a)) src GROUP BY CUBE(region) HAVING count(region)>0",
+      "oracle": "rows",
+      "expected_rows": [],
+      "reference": "https://github.com/apache/spark/pull/51820",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "region",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "total",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "gid",
+            "type": "byte",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "cube_mixed_star_-1",
+      "sql": "SELECT region, SUM(amount) AS total, grouping(region) AS gid FROM (SELECT CAST(r AS STRING) AS region, CAST(a AS INT) AS amount FROM VALUES ('east',3),(NULL,5),('east',NULL) AS input(r,a)) src GROUP BY CUBE(region) HAVING count(*)>-1",
+      "oracle": "rows",
+      "expected_rows": [
+        [
+          "east",
+          3,
+          0
+        ],
+        [
+          null,
+          5,
+          0
+        ],
+        [
+          null,
+          8,
+          1
+        ]
+      ],
+      "reference": "https://github.com/apache/spark/pull/51820",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "region",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "total",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "gid",
+            "type": "byte",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "east",
+          3,
+          0
+        ],
+        [
+          null,
+          5,
+          0
+        ],
+        [
+          null,
+          8,
+          1
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "cube_mixed_star_0",
+      "sql": "SELECT region, SUM(amount) AS total, grouping(region) AS gid FROM (SELECT CAST(r AS STRING) AS region, CAST(a AS INT) AS amount FROM VALUES ('east',3),(NULL,5),('east',NULL) AS input(r,a)) src GROUP BY CUBE(region) HAVING count(*)>0",
+      "oracle": "rows",
+      "expected_rows": [
+        [
+          "east",
+          3,
+          0
+        ],
+        [
+          null,
+          5,
+          0
+        ],
+        [
+          null,
+          8,
+          1
+        ]
+      ],
+      "reference": "https://github.com/apache/spark/pull/51820",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "region",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "total",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "gid",
+            "type": "byte",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "east",
+          3,
+          0
+        ],
+        [
+          null,
+          5,
+          0
+        ],
+        [
+          null,
+          8,
+          1
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "cube_mixed_column_-1",
+      "sql": "SELECT region, SUM(amount) AS total, grouping(region) AS gid FROM (SELECT CAST(r AS STRING) AS region, CAST(a AS INT) AS amount FROM VALUES ('east',3),(NULL,5),('east',NULL) AS input(r,a)) src GROUP BY CUBE(region) HAVING count(region)>-1",
+      "oracle": "rows",
+      "expected_rows": [
+        [
+          "east",
+          3,
+          0
+        ],
+        [
+          null,
+          5,
+          0
+        ],
+        [
+          null,
+          8,
+          1
+        ]
+      ],
+      "reference": "https://github.com/apache/spark/pull/51820",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "region",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "total",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "gid",
+            "type": "byte",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "east",
+          3,
+          0
+        ],
+        [
+          null,
+          5,
+          0
+        ],
+        [
+          null,
+          8,
+          1
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "cube_mixed_column_0",
+      "sql": "SELECT region, SUM(amount) AS total, grouping(region) AS gid FROM (SELECT CAST(r AS STRING) AS region, CAST(a AS INT) AS amount FROM VALUES ('east',3),(NULL,5),('east',NULL) AS input(r,a)) src GROUP BY CUBE(region) HAVING count(region)>0",
+      "oracle": "rows",
+      "expected_rows": [
+        [
+          "east",
+          3,
+          0
+        ],
+        [
+          null,
+          8,
+          1
+        ]
+      ],
+      "reference": "https://github.com/apache/spark/pull/51820",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "region",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "total",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "gid",
+            "type": "byte",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "east",
+          3,
+          0
+        ],
+        [
+          null,
+          8,
+          1
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "cube_duplicates_star_-1",
+      "sql": "SELECT region, SUM(amount) AS total, grouping(region) AS gid FROM (SELECT CAST(r AS STRING) AS region, CAST(a AS INT) AS amount FROM VALUES ('west',4),('west',4),('east',1) AS input(r,a)) src GROUP BY CUBE(region) HAVING count(*)>-1",
+      "oracle": "rows",
+      "expected_rows": [
+        [
+          "west",
+          8,
+          0
+        ],
+        [
+          "east",
+          1,
+          0
+        ],
+        [
+          null,
+          9,
+          1
+        ]
+      ],
+      "reference": "https://github.com/apache/spark/pull/51820",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "region",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "total",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "gid",
+            "type": "byte",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "east",
+          1,
+          0
+        ],
+        [
+          "west",
+          8,
+          0
+        ],
+        [
+          null,
+          9,
+          1
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "cube_duplicates_star_0",
+      "sql": "SELECT region, SUM(amount) AS total, grouping(region) AS gid FROM (SELECT CAST(r AS STRING) AS region, CAST(a AS INT) AS amount FROM VALUES ('west',4),('west',4),('east',1) AS input(r,a)) src GROUP BY CUBE(region) HAVING count(*)>0",
+      "oracle": "rows",
+      "expected_rows": [
+        [
+          "west",
+          8,
+          0
+        ],
+        [
+          "east",
+          1,
+          0
+        ],
+        [
+          null,
+          9,
+          1
+        ]
+      ],
+      "reference": "https://github.com/apache/spark/pull/51820",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "region",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "total",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "gid",
+            "type": "byte",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "east",
+          1,
+          0
+        ],
+        [
+          "west",
+          8,
+          0
+        ],
+        [
+          null,
+          9,
+          1
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "cube_duplicates_column_-1",
+      "sql": "SELECT region, SUM(amount) AS total, grouping(region) AS gid FROM (SELECT CAST(r AS STRING) AS region, CAST(a AS INT) AS amount FROM VALUES ('west',4),('west',4),('east',1) AS input(r,a)) src GROUP BY CUBE(region) HAVING count(region)>-1",
+      "oracle": "rows",
+      "expected_rows": [
+        [
+          "west",
+          8,
+          0
+        ],
+        [
+          "east",
+          1,
+          0
+        ],
+        [
+          null,
+          9,
+          1
+        ]
+      ],
+      "reference": "https://github.com/apache/spark/pull/51820",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "region",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "total",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "gid",
+            "type": "byte",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "east",
+          1,
+          0
+        ],
+        [
+          "west",
+          8,
+          0
+        ],
+        [
+          null,
+          9,
+          1
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "cube_duplicates_column_0",
+      "sql": "SELECT region, SUM(amount) AS total, grouping(region) AS gid FROM (SELECT CAST(r AS STRING) AS region, CAST(a AS INT) AS amount FROM VALUES ('west',4),('west',4),('east',1) AS input(r,a)) src GROUP BY CUBE(region) HAVING count(region)>0",
+      "oracle": "rows",
+      "expected_rows": [
+        [
+          "west",
+          8,
+          0
+        ],
+        [
+          "east",
+          1,
+          0
+        ],
+        [
+          null,
+          9,
+          1
+        ]
+      ],
+      "reference": "https://github.com/apache/spark/pull/51820",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "region",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "total",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "gid",
+            "type": "byte",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "east",
+          1,
+          0
+        ],
+        [
+          "west",
+          8,
+          0
+        ],
+        [
+          null,
+          9,
+          1
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "cube_cancellation_star_-1",
+      "sql": "SELECT region, SUM(amount) AS total, grouping(region) AS gid FROM (SELECT CAST(r AS STRING) AS region, CAST(a AS INT) AS amount FROM VALUES ('east',7),('east',-7),('west',NULL) AS input(r,a)) src GROUP BY CUBE(region) HAVING count(*)>-1",
+      "oracle": "rows",
+      "expected_rows": [
+        [
+          "east",
+          0,
+          0
+        ],
+        [
+          "west",
+          null,
+          0
+        ],
+        [
+          null,
+          0,
+          1
+        ]
+      ],
+      "reference": "https://github.com/apache/spark/pull/51820",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "region",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "total",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "gid",
+            "type": "byte",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "east",
+          0,
+          0
+        ],
+        [
+          "west",
+          null,
+          0
+        ],
+        [
+          null,
+          0,
+          1
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "cube_cancellation_star_0",
+      "sql": "SELECT region, SUM(amount) AS total, grouping(region) AS gid FROM (SELECT CAST(r AS STRING) AS region, CAST(a AS INT) AS amount FROM VALUES ('east',7),('east',-7),('west',NULL) AS input(r,a)) src GROUP BY CUBE(region) HAVING count(*)>0",
+      "oracle": "rows",
+      "expected_rows": [
+        [
+          "east",
+          0,
+          0
+        ],
+        [
+          "west",
+          null,
+          0
+        ],
+        [
+          null,
+          0,
+          1
+        ]
+      ],
+      "reference": "https://github.com/apache/spark/pull/51820",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "region",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "total",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "gid",
+            "type": "byte",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "east",
+          0,
+          0
+        ],
+        [
+          "west",
+          null,
+          0
+        ],
+        [
+          null,
+          0,
+          1
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "cube_cancellation_column_-1",
+      "sql": "SELECT region, SUM(amount) AS total, grouping(region) AS gid FROM (SELECT CAST(r AS STRING) AS region, CAST(a AS INT) AS amount FROM VALUES ('east',7),('east',-7),('west',NULL) AS input(r,a)) src GROUP BY CUBE(region) HAVING count(region)>-1",
+      "oracle": "rows",
+      "expected_rows": [
+        [
+          "east",
+          0,
+          0
+        ],
+        [
+          "west",
+          null,
+          0
+        ],
+        [
+          null,
+          0,
+          1
+        ]
+      ],
+      "reference": "https://github.com/apache/spark/pull/51820",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "region",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "total",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "gid",
+            "type": "byte",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "east",
+          0,
+          0
+        ],
+        [
+          "west",
+          null,
+          0
+        ],
+        [
+          null,
+          0,
+          1
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "cube_cancellation_column_0",
+      "sql": "SELECT region, SUM(amount) AS total, grouping(region) AS gid FROM (SELECT CAST(r AS STRING) AS region, CAST(a AS INT) AS amount FROM VALUES ('east',7),('east',-7),('west',NULL) AS input(r,a)) src GROUP BY CUBE(region) HAVING count(region)>0",
+      "oracle": "rows",
+      "expected_rows": [
+        [
+          "east",
+          0,
+          0
+        ],
+        [
+          "west",
+          null,
+          0
+        ],
+        [
+          null,
+          0,
+          1
+        ]
+      ],
+      "reference": "https://github.com/apache/spark/pull/51820",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "region",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "total",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "gid",
+            "type": "byte",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "east",
+          0,
+          0
+        ],
+        [
+          "west",
+          null,
+          0
+        ],
+        [
+          null,
+          0,
+          1
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "json_object_nan",
+      "sql": "SELECT to_json(to_variant_object(named_struct('reading', CAST('NaN' AS DOUBLE)))) AS value",
+      "oracle": "strict_json",
+      "expected_json": {
+        "reading": "NaN"
+      },
+      "reference": "https://github.com/apache/spark/pull/50901",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "{\"reading\":\"NaN\"}"
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "json_array_nan",
+      "sql": "SELECT to_json(to_variant_object(array(CAST('NaN' AS DOUBLE)))) AS value",
+      "oracle": "strict_json",
+      "expected_json": [
+        "NaN"
+      ],
+      "reference": "https://github.com/apache/spark/pull/50901",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "[\"NaN\"]"
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "json_object_positive_inf",
+      "sql": "SELECT to_json(to_variant_object(named_struct('reading', CAST('Infinity' AS DOUBLE)))) AS value",
+      "oracle": "strict_json",
+      "expected_json": {
+        "reading": "Infinity"
+      },
+      "reference": "https://github.com/apache/spark/pull/50901",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "{\"reading\":\"Infinity\"}"
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "json_array_positive_inf",
+      "sql": "SELECT to_json(to_variant_object(array(CAST('Infinity' AS DOUBLE)))) AS value",
+      "oracle": "strict_json",
+      "expected_json": [
+        "Infinity"
+      ],
+      "reference": "https://github.com/apache/spark/pull/50901",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "[\"Infinity\"]"
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "json_object_negative_inf",
+      "sql": "SELECT to_json(to_variant_object(named_struct('reading', CAST('-Infinity' AS DOUBLE)))) AS value",
+      "oracle": "strict_json",
+      "expected_json": {
+        "reading": "-Infinity"
+      },
+      "reference": "https://github.com/apache/spark/pull/50901",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "{\"reading\":\"-Infinity\"}"
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "json_array_negative_inf",
+      "sql": "SELECT to_json(to_variant_object(array(CAST('-Infinity' AS DOUBLE)))) AS value",
+      "oracle": "strict_json",
+      "expected_json": [
+        "-Infinity"
+      ],
+      "reference": "https://github.com/apache/spark/pull/50901",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "[\"-Infinity\"]"
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "json_object_fraction",
+      "sql": "SELECT to_json(to_variant_object(named_struct('reading', CAST(1.25 AS DOUBLE)))) AS value",
+      "oracle": "strict_json",
+      "expected_json": {
+        "reading": 1.25
+      },
+      "reference": "https://github.com/apache/spark/pull/50901",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "{\"reading\":1.25}"
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "json_array_fraction",
+      "sql": "SELECT to_json(to_variant_object(array(CAST(1.25 AS DOUBLE)))) AS value",
+      "oracle": "strict_json",
+      "expected_json": [
+        1.25
+      ],
+      "reference": "https://github.com/apache/spark/pull/50901",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "[1.25]"
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "json_object_negative_zero",
+      "sql": "SELECT to_json(to_variant_object(named_struct('reading', CAST(-0.0 AS DOUBLE)))) AS value",
+      "oracle": "strict_json",
+      "expected_json": {
+        "reading": -0.0
+      },
+      "reference": "https://github.com/apache/spark/pull/50901",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "{\"reading\":0.0}"
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "json_array_negative_zero",
+      "sql": "SELECT to_json(to_variant_object(array(CAST(-0.0 AS DOUBLE)))) AS value",
+      "oracle": "strict_json",
+      "expected_json": [
+        -0.0
+      ],
+      "reference": "https://github.com/apache/spark/pull/50901",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "[0.0]"
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "json_object_null",
+      "sql": "SELECT to_json(to_variant_object(named_struct('reading', CAST(NULL AS DOUBLE)))) AS value",
+      "oracle": "strict_json",
+      "expected_json": {
+        "reading": null
+      },
+      "reference": "https://github.com/apache/spark/pull/50901",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "{\"reading\":null}"
+        ]
+      ],
+      "oracle_result": "pass"
+    },
+    {
+      "id": "json_array_null",
+      "sql": "SELECT to_json(to_variant_object(array(CAST(NULL AS DOUBLE)))) AS value",
+      "oracle": "strict_json",
+      "expected_json": [
+        null
+      ],
+      "reference": "https://github.com/apache/spark/pull/50901",
+      "status": "ok",
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "rows": [
+        [
+          "[null]"
+        ]
+      ],
+      "oracle_result": "pass"
+    }
+  ]
+}

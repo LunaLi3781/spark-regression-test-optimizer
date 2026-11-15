@@ -1,4 +1,6 @@
 """Original synthetic queries; no employer data or upstream test code."""
+from .boundary import BOUNDARY
+
 GUIDE = "https://spark.apache.org/docs/4.0.1/sql-migration-guide.html"
 QUERIES = [
     ("integer", "SELECT 7 + 5 AS value"),
@@ -60,4 +62,4 @@ HISTORICAL.extend([
      "reference": "https://github.com/apache/spark/pull/51820",
      "oracle": "rows", "expected_rows": TOTALS},
 ])
-SUITES = {"smoke": CASES, "historical": HISTORICAL}
+SUITES = {"smoke": CASES, "historical": HISTORICAL, "boundary": BOUNDARY}

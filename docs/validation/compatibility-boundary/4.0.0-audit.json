@@ -1,0 +1,19 @@
+{
+  "spark_version": "4.0.0",
+  "cases": 32,
+  "passed": 21,
+  "failures": [
+    "cube_empty_star_-1",
+    "cube_empty_column_-1",
+    "cube_mixed_column_0",
+    "cube_duplicates_column_0",
+    "cube_cancellation_column_0",
+    "json_object_nan",
+    "json_array_nan",
+    "json_object_positive_inf",
+    "json_array_positive_inf",
+    "json_object_negative_inf",
+    "json_array_negative_inf"
+  ],
+  "scope": "deterministic boundary cases, not general compatibility proof"
+}

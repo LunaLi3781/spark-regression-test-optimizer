@@ -82,7 +82,9 @@ def compare(left, right):
                        "source_status": x["status"], "target_status": y["status"],
                        "source_oracle": x.get("oracle_result"),
                        "target_oracle": y.get("oracle_result"),
-                       "interpretation": "needs_review" if changes else "no_observed_difference"})
+                       "interpretation": ("correctness_failure" if "fail" in
+                                          (x.get("oracle_result"), y.get("oracle_result")) else
+                                          "needs_review" if changes else "no_observed_difference")})
     return {"source_version": left["spark_version"], "target_version": right["spark_version"],
             "profile": left["profile"], "cases": output,
             "changed": sum(bool(r["changes"]) for r in output)}

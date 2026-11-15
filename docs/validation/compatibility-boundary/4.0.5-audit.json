@@ -1,0 +1,10 @@
+{
+  "spark_version": "4.0.5",
+  "cases": 32,
+  "passed": 30,
+  "failures": [
+    "cube_empty_star_-1",
+    "cube_empty_column_-1"
+  ],
+  "scope": "deterministic boundary cases, not general compatibility proof"
+}

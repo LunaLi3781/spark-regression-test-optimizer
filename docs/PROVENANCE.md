@@ -43,3 +43,13 @@ uses three synthetic sales values (4, 6, 5) and one region dimension, with a
 hand-computed expected total of 15 and a UNION-based control. Implementations,
 checks and data are AI-assisted and original. These reproduce known defects;
 they are not claims of discovering or repairing the upstream issues.
+
+## Boundary probes (2026-11-14)
+
+32 deterministic synthetic probes and a Python aggregation oracle were authored
+for this project with AI assistance; no employer inputs were used. The observed
+empty-input CUBE candidate was cross-checked against public SQL documentation and
+PR 56891 after reproduction. That PR concerns a related single-empty-grouping-set
+fix; no source/tests were copied, and novelty of this candidate is unestablished.
+- https://spark.apache.org/docs/4.0.1/sql-ref-syntax-qry-select-groupby.html
+- https://github.com/apache/spark/pull/56891

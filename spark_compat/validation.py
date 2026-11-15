@@ -28,3 +28,17 @@ def verify_historical(run):
     if version == '4.0.0' and cases['xml_binary_52788']['error'] != 'SPARK-52788_BINARY_XML_CONVERSION':
         raise ValueError('Unexpected XML error')
     return {'version': version, 'cases': len(cases), 'known_defects': len(DEFECTS)}
+
+
+def audit_boundary(run):
+    """Reject incomplete input and expose same-version correctness failures."""
+    from .boundary import BOUNDARY
+    if run.get('suite') != 'boundary' or run.get('case_fingerprint') != fingerprint(BOUNDARY):
+        raise ValueError('Boundary suite does not match current definitions')
+    ids = [c['id'] for c in run['cases']]
+    if len(ids) != len(set(ids)) or set(ids) != {c['id'] for c in BOUNDARY}:
+        raise ValueError('Boundary observations are incomplete or duplicated')
+    failures = [c['id'] for c in run['cases'] if c.get('oracle_result') != 'pass' or c['status'] != 'ok']
+    return {'spark_version': run['spark_version'], 'cases': len(ids),
+            'passed': len(ids) - len(failures), 'failures': failures,
+            'scope': 'deterministic boundary cases, not general compatibility proof'}

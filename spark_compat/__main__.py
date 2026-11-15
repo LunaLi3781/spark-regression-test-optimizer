@@ -8,6 +8,7 @@ from pathlib import Path
 
 from .cases import SUITES
 from .oracles import check
+from .validation import audit_boundary
 from .core import canonical, compare, dumps, fingerprint, markdown
 
 
@@ -86,11 +87,16 @@ def main():
     diff.add_argument("target")
     diff.add_argument("--output", required=True)
     diff.add_argument("--markdown")
+    audit = sub.add_parser("audit")
+    audit.add_argument("input")
+    audit.add_argument("--output", required=True)
     args = parser.parse_args()
     if args.command == "collect":
         if args.row_limit < 1:
             parser.error("--row-limit must be positive")
         report = collect(args.profile, args.row_limit, args.suite)
+    elif args.command == "audit":
+        report = audit_boundary(json.loads(Path(args.input).read_text()))
     else:
         report = compare(json.loads(Path(args.source).read_text()),
                          json.loads(Path(args.target).read_text()))
@@ -100,6 +106,8 @@ def main():
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(markdown(report), encoding="utf-8")
     print(args.output)
+    if args.command == "audit" and report["failures"]:
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":

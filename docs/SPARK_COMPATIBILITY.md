@@ -110,3 +110,9 @@ aggregate but showed no difference with that query; it is not included or counte
 
 This is a selected three-defect validation set, not a held-out benchmark or evidence
 of general recall. Credit for the original fixes belongs to Apache contributors.
+
+## Boundary audits
+
+The `boundary` suite adds 32 deterministic edge cases and an `audit` command that
+checks correctness even without a second Spark version. See
+[results, reproduction, limitations and unresolved candidate](BOUNDARY_RESULTS.md).
