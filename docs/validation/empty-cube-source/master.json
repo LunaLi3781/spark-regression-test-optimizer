@@ -1,0 +1,83 @@
+{
+  "spark_version": "5.0.0-SNAPSHOT",
+  "source_sha": "3438c728d38c11fc173f0829b86709c639123961",
+  "python": "3.11.18",
+  "java": "21.0.13",
+  "observations": {
+    "global_control": {
+      "sql": "SELECT CAST(NULL AS STRING) AS region, SUM(amount) AS total, 1 AS gid FROM (SELECT CAST(NULL AS STRING) AS region, CAST(NULL AS INT) AS amount WHERE false) src",
+      "rows": [
+        [
+          null,
+          null,
+          1
+        ]
+      ],
+      "optimized_plan": "Aggregate [null AS region#2, sum(null) AS total#3L, 1 AS gid#4]\n+- LocalRelation <empty>\n"
+    },
+    "keyed_control": {
+      "sql": "SELECT region, SUM(amount) AS total, 0 AS gid FROM (SELECT CAST(NULL AS STRING) AS region, CAST(NULL AS INT) AS amount WHERE false) src GROUP BY region",
+      "rows": [],
+      "optimized_plan": "LocalRelation <empty>, [region#8, total#10L, gid#11]\n"
+    },
+    "cube": {
+      "sql": "SELECT region, SUM(amount) AS total, grouping(region) AS gid FROM (SELECT CAST(NULL AS STRING) AS region, CAST(NULL AS INT) AS amount WHERE false) src GROUP BY CUBE(region)",
+      "rows": [],
+      "optimized_plan": "LocalRelation <empty>, [region#20, total#15L, gid#16]\n"
+    },
+    "cube_having": {
+      "sql": "SELECT region, SUM(amount) AS total, grouping(region) AS gid FROM (SELECT CAST(NULL AS STRING) AS region, CAST(NULL AS INT) AS amount WHERE false) src GROUP BY CUBE(region) HAVING count(*) > -1",
+      "rows": [],
+      "optimized_plan": "LocalRelation <empty>, [region#30, total#24L, gid#25]\n"
+    },
+    "grouping_sets": {
+      "sql": "SELECT region, SUM(amount) AS total, grouping(region) AS gid FROM (SELECT CAST(NULL AS STRING) AS region, CAST(NULL AS INT) AS amount WHERE false) src GROUP BY GROUPING SETS ((region), ())",
+      "rows": [],
+      "optimized_plan": "LocalRelation <empty>, [region#40, total#35L, gid#36]\n"
+    },
+    "rollup": {
+      "sql": "SELECT region, SUM(amount) AS total, grouping(region) AS gid FROM (SELECT CAST(NULL AS STRING) AS region, CAST(NULL AS INT) AS amount WHERE false) src GROUP BY ROLLUP(region)",
+      "rows": [],
+      "optimized_plan": "LocalRelation <empty>, [region#49, total#44L, gid#45]\n"
+    },
+    "single_empty_set": {
+      "sql": "SELECT SUM(amount) AS total FROM (SELECT CAST(NULL AS STRING) AS region, CAST(NULL AS INT) AS amount WHERE false) src GROUP BY GROUPING SETS (())",
+      "rows": [
+        [
+          null
+        ]
+      ],
+      "optimized_plan": "Aggregate [sum(null) AS total#53L]\n+- LocalRelation <empty>\n"
+    },
+    "nonempty_control": {
+      "sql": "SELECT region, SUM(amount) AS total, grouping(region) AS gid FROM VALUES ('east', 7) AS src(region,amount) GROUP BY CUBE(region)",
+      "rows": [
+        [
+          "east",
+          7,
+          0
+        ],
+        [
+          null,
+          7,
+          1
+        ]
+      ],
+      "optimized_plan": "Aggregate [region#64, spark_grouping_id#63L], [region#64, sum(amount#58) AS total#59L, cast((shiftright(spark_grouping_id#63L, 0) & 1) as tinyint) AS gid#60]\n+- Expand [[amount#58, region#62, 0], [amount#58, null, 1]], [amount#58, region#64, spark_grouping_id#63L]\n   +- LocalRelation [amount#58, region#62]\n"
+    }
+  },
+  "assessment": {
+    "controls": {
+      "global_control": true,
+      "keyed_control": true,
+      "nonempty_control": true
+    },
+    "mismatches": [
+      "cube",
+      "cube_having",
+      "grouping_sets",
+      "rollup"
+    ],
+    "note": "Observed against a global-aggregate control; novelty is unestablished."
+  }
+}

@@ -71,3 +71,9 @@ failures even when their difference count is zero.
 six-case historical suite also passed cloud CI in
 [run 43139141286](https://github.com/LunaLi3781/spark-regression-test-optimizer/actions/runs/43139141286).
 That cloud result is not evidence of a cloud run of these new 32 boundary cases.
+
+## Current-source confirmation (2026-11-16)
+
+[New triage evidence](EMPTY_CUBE_TRIAGE.md) confirms the discrepancy on 4.3.0 and
+pinned master source with three passing controls. SPARK-57775 concerns only the
+single-empty-set case. No new issue/patch or novelty claim is made yet.
