@@ -1,0 +1,65 @@
+name: Empty CUBE source investigation
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  released:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - run: python -m pip install pyspark==4.3.0
+      - run: python -m scripts.probe_empty_cube --output results/4.3.0.json
+        env:
+          SPARK_LOCAL_IP: 127.0.0.1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: empty-cube-release
+          path: results/
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      SPARK_LOCAL_IP: 127.0.0.1
+      PYSPARK_PYTHON: python3
+      SPARK_SOURCE_SHA: 3438c728d38c11fc173f0829b86709c639123961
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: project
+      - uses: actions/checkout@v4
+        with:
+          repository: apache/spark
+          ref: 3438c728d38c11fc173f0829b86709c639123961
+          path: spark
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: sbt
+      - run: python -m pip install --upgrade pip && python -m pip install --group sql
+        working-directory: spark
+      - name: Build unmodified pinned Spark source
+        working-directory: spark
+        run: build/sbt -J-Xmx4g -Phive package > /tmp/empty-cube-source-build.log 2>&1
+      - name: Record minimal reproducer and control observations
+        run: spark/bin/spark-submit project/scripts/probe_empty_cube.py --output results/master.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: empty-cube-source
+          path: |
+            results/
+            /tmp/empty-cube-source-build.log
